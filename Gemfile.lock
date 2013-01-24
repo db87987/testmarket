@@ -314,6 +314,7 @@ DEPENDENCIES
   capistrano
   coffee-rails (~> 3.2.1)
   execjs
+  haml
   jquery-rails (~> 2.0.0)
   pg
   rails (= 3.2.11)
