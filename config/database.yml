@@ -48,8 +48,10 @@ test:
 
 production:
   adapter: postgresql
-  encoding: unicode
-  database: testmarket_production
+  host: postgresql5.locum.ru
+  encoding: utf8
+  database: babrovka_testm73
   pool: 5
-  username: testmarket
-  password:
+  username: babrovka_testm73
+  password: KQpebRVw
+  
