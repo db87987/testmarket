@@ -27,7 +27,7 @@ gem 'unicorn'
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'haml'
+gem 'haml' , :git => 'https://github.com/haml/haml.git', :branch => '3-2-stable'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
