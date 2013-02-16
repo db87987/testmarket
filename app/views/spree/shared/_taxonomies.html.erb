@@ -6,10 +6,14 @@
 
 	<div id="catalogue-menu">
 		<span class="cm-title">каталог товаров</span>
-		<ul>
+		
 	  <% get_taxonomies.each do |taxonomy| %>		
-			<li><%= t(:shop_by_taxonomy, :taxonomy => taxonomy.name.singularize) %></li>
+			<%= t(:shop_by_taxonomy, :taxonomy => taxonomy.name.singularize) %>
 			<%= taxons_tree(taxonomy.root, @taxon, Spree::Config[:max_level_in_taxons_menu] || 1) %>
    	  <% end %>	
-		</ul>	
+			
 	</div>
+	
+	<a href="#"><span>DJ оборудование</span></a>
+	
+	
