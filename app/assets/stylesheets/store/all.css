@@ -1,15 +1,763 @@
+
+
+@font-face {
+    font-family: 'pf_highway_sans_promedium';
+    src: url('pfhighwaysanspro-medium-webfont.eot');
+    src: local('☺'), url('pfhighwaysanspro-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('pfhighwaysanspro-medium-webfont.woff') format('woff'),
+         url('pfhighwaysanspro-medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pf_highway_sans_proregular';
+    src: url('pfhighwaysanspro-regular-webfont.eot');
+    src: local('☺'), url('pfhighwaysanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('pfhighwaysanspro-regular-webfont.woff') format('woff'),
+         url('pfhighwaysanspro-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pf_highway_sans_probold';
+    src: url('pfhighwaysanspro-bold-webfont.eot');
+    src: local('☺'), url('pfhighwaysanspro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('pfhighwaysanspro-bold-webfont.woff') format('woff'),
+         url('pfhighwaysanspro-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pf_dintext_promedium';
+    src: url('pfdintextpro-medium-webfont.eot');
+    src: local('☺'), url('pfdintextpro-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('pfdintextpro-medium-webfont.woff') format('woff'),
+         url('pfdintextpro-medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pf_din_text_cond_probold';
+    src: url('pfdintextcondpro-bold-webfont.eot');
+    src: local('☺'), url('pfdintextcondpro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('pfdintextcondpro-bold-webfont.woff') format('woff'),
+         url('pfdintextcondpro-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pf_din_text_cond_promedium';
+    src: url('pfdintextcondpro-medium-webfont.eot');
+    src: local('☺'), url('pfdintextcondpro-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('pfdintextcondpro-medium-webfont.woff') format('woff'),
+         url('pfdintextcondpro-medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pf_dintext_proregular';
+    src: url('pfdintextpro-regular-webfont.eot');
+    src: local('☺'), url('pfdintextpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('pfdintextpro-regular-webfont.woff') format('woff'),
+         url('pfdintextpro-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pf_din_text_cond_proregular';
+    src: url('pfdintextcondpro-regular-webfont.eot');
+    src: local('☺'), url('pfdintextcondpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('pfdintextcondpro-regular-webfont.woff') format('woff'),
+         url('pfdintextcondpro-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pf_din_text_cond_prolight';
+    src: url('pfdintextcondpro-light-webfont.eot');
+    src: local('☺'), url('pfdintextcondpro-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('pfdintextcondpro-light-webfont.woff') format('woff'),
+         url('pfdintextcondpro-light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html,body,div,span,object,h1,h2,h3,h4,h5,h6,p,a,abbr,em,b,strong,dl,dt,dd,ol,ul,li,form,label,table,tbody,tfoot,thead,tr,th,td {margin: 0;padding: 0;}
+* {font-family: Arial, Tahoma, Verdana, sans-serif; font-size: 100.01%; outline: none;}
+
+table {border-collapse:collapse;}
+a {color: #e40101; text-decoration: underline;}
+a:hover {text-decoration: none;}
+a img {border:none}
+ul, ol {list-style:none}
+
+.clear {clear: both; font-size:0; overflow:hidden; line-height: 0;}
+
+html {min-width: 940px;}
+body {color: #1d2932; min-width: 940px;}
+
+html, body {min-height: 100%!important; height: 100%;}
+
+body {background: #1c1c1c url(/img/bg.gif);}
+
+#container #middle .cm-title, #container .middle-idx .ri-title {font-family: pf_highway_sans_proregular, Arial, Tahoma, Verdana, sans-serif;}
+#container .banners-small li .bs-title, #container .banners-small li .bs-link {font-family: pf_highway_sans_promedium, Arial, Tahoma, Verdana, sans-serif;}
+#container .slider-wrap ul li .slider-text .st-title, #container .catalogue-list li .cl-buy {font-family: pf_highway_sans_probold, Arial, Tahoma, Verdana, sans-serif;}
+
+#header .h-notice, #m-menu ul li a, #container #middle #catalogue-menu ul li .active, #container #middle #catalogue-menu ul li .active span, #container #left .l-menu li * {font-family: pf_din_text_cond_promedium, Arial, Tahoma, Verdana, sans-serif;}
+#header .h-phone {font-family: pf_dintext_promedium, Arial, Tahoma, Verdana, sans-serif;}
+#header .h-phone span {font-family: pf_din_text_cond_probold, Arial, Tahoma, Verdana, sans-serif;}
+
+#footer .f-inside .fi-item ul li a, #footer .f-inside .f-notice, #footer .f-inside .f-develop span, #footer .f-inside .f-search input, 
+#footer .f-inside a {font-family: pf_dintext_proregular, Arial, Tahoma, Verdana, sans-serif;}
+#container #middle #catalogue-menu ul li a, #container #middle #catalogue-menu ul li a span {font-family: pf_din_text_cond_proregular, Arial, Tahoma, Verdana, sans-serif;}
+
+#container .content h1 {font-family: pf_din_text_cond_prolight, Arial, Tahoma, Verdana, sans-serif;}
+
+#container {
+	margin: 0 auto;
+	min-height: 100%;
+	width: 940px;
+}
+
+#header {
+	height: 94px;
+	position: relative;
+}
+
+#header .logo {
+	background: url(/img/logo.png) no-repeat;
+	color: #fff;
+	position: absolute;
+	top: 16px; left: 0;
+	height: 45px;
+	overflow: hidden;
+	text-indent: -1000px;
+	width: 167px;
+}
+
+#header .h-notice {
+	color: #4e4e4e;
+	font-size: 12px;
+	line-height: 120%;
+	position: absolute;
+	top: 17px; left: 205px;
+	text-transform: uppercase;
+	width: 170px;
+}
+
+#header .h-links {
+	font-size: 12px;
+	position: absolute;
+	left: 400px; top: 13px;
+}
+
+#header .h-links li {padding-bottom: 5px;}
+
+#header .h-links li a {color: #666;}
+#header .h-links li a:hover {color: #c10100; text-decoration: underline;}
+
+#header .h-cart {
+	background: #4e4e4e;
+	-webkit-border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;	
+	border-radius: 0 0 5px 5px;
+	color: #fff;
+	font-size: 14px;
+	overflow: hidden;
+	padding: 15px 0 10px 20px;
+	position: absolute;
+	box-shadow: -2px 0 2px #000;
+	left: 540px; top: 0;
+	width: 160px;
+}
+
+#header .h-cart p {padding-bottom: 5px;}
+
+#header .h-cart a {
+	color: #fff;
+	font-size: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#header .h-phone {
+	color: #fff;
+	font-size: 34px;
+	position: absolute;
+	top: 10px; right: 0;
+}
+
+#header .h-phone span {
+	color: #4e4e4e;
+	font-size: 20px;
+}
+
+#header .h-map-link {
+	color: #666;
+	font-size: 12px;
+	position: absolute;
+	top: 50px; right: 0;
+}
+
+#header .h-map-link:hover {color: #c10100; text-decoration: underline;}
+
+#m-menu {
+	background: url(/img/m-menu-bg.png) repeat-x;
+	font-size: 12px;
+	height: 47px;
+	overflow: hidden;
+	text-transform: uppercase;
+	width: 100%;
+}
+
+#m-menu ul li {
+	background: url(/img/m-menu-v-line.png) no-repeat right top;
+	float: left;
+	height: 47px;
+	padding-right: 1px;
+}
+
+#m-menu ul li a {	
+	background: url(/img/m-menu-link.png) repeat-x 0 47px;
+	color: #fff;
+	display: block;
+	float: left;
+	height: 47px;
+	line-height: 47px;
+	padding: 0 17px 0 18px;
+	text-decoration: none;
+}
+
+#m-menu ul li a:hover {background-position: 0 -47px;}
+#m-menu ul li a.active {background-position: 0 0;}
+
+#m-menu ul .online-c {
+	background: none;
+	float: left;
+	padding: 0;
+}
+
+#m-menu ul .online-c a {
+	background: url(/img/online-c.png) no-repeat 0 0;
+	color: #4dd92d;
+	line-height: 120%;
+	padding: 9px 19px 0 60px;
+	height: 38px;
+}
+
+#m-menu ul .online-c a:hover {background-position: 0 -47px; color: #fff;}
+
+#container .slider-wrap {
+	height: 460px;
+	overflow: hidden;
+	position: relative;
+	width: 940px;
+}
+
+#container .slider-wrap ul li {
+	float: left;
+	overflow: hidden;
+	position: relative;
+	height: 460px;
+	width: 940px;
+}
+
+#container .slider-wrap ul li .slider-text {
+	background: url(/img/slider-text-bg.png) repeat-y center top;
+	color: #fff;
+	padding: 20px 20px 45px;
+	position: absolute;
+	left: 0; bottom: 50px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 900px;
+}
+
+#container .slider-wrap ul li .slider-text a {color: #fff;	text-decoration: underline;}
+#container .slider-wrap ul li .slider-text a:hover {text-decoration: none;}
+
+#container .slider-wrap ul li .slider-text .st-detail {
+	background: url(/img/detail-arr.png) no-repeat right center;
+	padding-right: 10px;
+}
+
+#container .slider-wrap ul li .slider-text .st-title {
+	display: block;
+	font-size: 30px;
+}
+
+#container .slider-wrap ul li .slider-text .st-text {font-size: 11px;}
+
+.slider-wrap #s-pagination {
+	position: absolute;
+	text-align: center;
+	bottom: 60px; left: 0;
+	width: 940px;
+}
+
+.slider-wrap #s-pagination a {
+	background: url(/img/slider-paging.png) no-repeat;
+	display: inline-block;
+	height: 12px;
+	margin: 0 8px;
+	overflow: hidden;
+	text-indent: -1000px;
+	width: 12px;
+}
+
+.slider-wrap  #s-pagination a:hover, .slider-wrap #s-pagination a.selected {background-position: -12px 0;}
+
+#container .banners-small {
+	background: #000;
+	height: 140px;
+	text-transform: uppercase;
+}
+
+#container .banners-small li/*, #container .banners-small li a*/ {
+	float: left;
+	overflow: hidden;
+	position: relative;
+	height: 140px;
+	width: 310px;
+}
 /*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
- *
-
- *= require store/spree_core
- *= require store/spree_auth
- *= require store/spree_promo
-
- *= require_self
- *= require_tree .
- *= require store/spree_essential_menus
-*= require store/spree_essential_blog
+#container .banners-small li a {
+	display: block;
+	position: absolute;
+	top: 0; left: 0;
+	margin: 0;
+	text-indent: -1000px;
+}
 */
+#container .banners-small li img, #container .slider-wrap ul li img {display: block;}
+
+#container .banners-small li .bs-title {
+	background: url(/img/bs-title-bg.png) repeat-y;
+	color: #fff;
+	display: block;
+	font-size: 16px;
+	padding: 7px 110px 7px 25px;
+	position: absolute;
+	left: 0; bottom: 15px;
+	line-height: 105%;
+	width: 175px;
+}
+
+#container .banners-small li .bs-link {
+	background: #c10100;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;	
+	border-radius: 3px;
+	color: #fff;
+	display: block;
+	font-size: 12px;
+	padding: 3px 10px;
+	position: absolute;
+	right: 10px; bottom: 20px;
+	text-decoration: none;
+}
+
+#container .banners-small li .bs-link:hover {
+	background: #fff;
+	color: #c10100;
+}
+
+#container .banners-small .bs-middle {margin: 0 1px; width: 318px;}
+#container .banners-small .bs-middle .bs-title {width: 183px;}
+/*#container .banners-small .bs-middle a {width: 318px;}*/
+
+#container #middle {
+	background: #fff url(/img/middle-bg.gif) repeat-x left bottom;
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+
+#container #middle #catalogue-menu {
+	float: left;
+	font-size: 12px;
+	text-transform: uppercase;
+	width: 220px;
+}
+
+#container #middle .cm-title {
+	background: url(/img/red-title-bg.gif);
+	color: #fff;
+	display: block;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	overflow: hidden;
+	padding: 0 0 0 30px;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+#container #middle #catalogue-menu ul {padding: 30px 0;}
+#container #middle #catalogue-menu ul li {margin-bottom: 5px;}
+#container #middle #catalogue-menu ul ul {padding: 5px 0 0 10px;}
+#container #middle #catalogue-menu ul ul li {margin-bottom: 0;}
+#container #middle #catalogue-menu ul ul li a {background: none; padding-left: 27px}
+
+#container #middle #catalogue-menu ul li a {
+	color: #1d2932;
+	display: block;
+	padding: 3px 20px 3px 13px;
+	text-decoration: none;
+}
+
+#container #middle #catalogue-menu ul li a:hover {background: url(/img/menu-l-grey-bg.gif); color: #fff;}
+
+#container #middle #catalogue-menu ul li a span {
+	background: url(/img/menu-l-arr.gif) no-repeat left center;
+	display: block;
+	padding-left: 14px;
+}
+
+#container #middle #catalogue-menu ul li a:hover span {background-position: -220px center; color: #fff;}
+
+#container #middle #catalogue-menu ul ul li a:hover, #container #middle #catalogue-menu ul ul li a.active {
+	background: none;
+	color: #c10100;
+	text-decoration: underline;
+}
+
+#container #middle #catalogue-menu ul li .active {
+	background: url(/img/red-title-bg.gif);
+	color: #fff;
+}
+
+#container #middle #catalogue-menu ul li .active span {background: url(/img/menu-l-arr-act.gif) no-repeat left center;}
+
+#container #middle #catalogue-menu ul li .active:hover {text-decoration: none;}
+#container #middle #catalogue-menu ul li .active:hover {color: #fff;}
+
+#container .copyright {
+	color: #757575;
+	font-size: 11px;
+	padding: 15px 0 35px;
+	text-align: right;
+}
+
+#container .middle-idx {
+	background: #fff url(/img/middle-line-bg.gif) repeat-y;
+	overflow: hidden;
+}
+
+#container .right-idx {
+	float: left;
+	width: 720px;
+}
+
+#container .middle-idx .ri-title {
+	background: url(/img/grey-title-bg.gif);
+	color: #fff;
+	display: block;
+	font-size: 25px;
+	height: 40px;
+	line-height: 40px;
+	overflow: hidden;
+	padding: 0 40px;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+#container .catalogue-list {
+	width: 723px;
+}
+
+#container .catalogue-list li {
+	border: 1px solid #ebebeb;
+	border-width: 0 1px 1px 0;
+	float: left;
+	height: 300px;
+	position: relative;
+	width: 240px;
+}
+
+#container .catalogue-list li .cl-img {
+	display: block;
+	height: 166px;
+	overflow: hidden;
+	position: absolute;
+	left: 25px; top: 25px;
+	text-align: center;
+	width: 185px;
+}
+
+#container .catalogue-list li .cl-title {
+	display: block;
+	font-size: 12px;
+	height: 20px;
+	position: absolute;
+	left: 25px; top: 175px;
+	width: 185px;
+}
+
+#container .catalogue-list li .cl-title a {white-space: nowrap;}
+
+#container .catalogue-list li p {
+	color: #8c8c8c;
+	font-size: 11px;
+	height: 30px;
+	overflow: hidden;
+	position: absolute;
+	left: 25px; top: 195px;
+	width: 185px;
+}
+
+#container .catalogue-list li .cl-price {
+	color: #1c1c1c;
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+	overflow: hidden;
+	position: absolute;
+	left: 25px; top: 240px;
+	text-transform: uppercase;
+	width: 115px;
+}
+
+#container .catalogue-list li .cl-buy {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;	
+	border-radius: 3px;
+	color: #e40101;
+	display: block;
+	font-size: 13px;
+	line-height: 100%;
+	padding: 5px 10px 3px;
+	position: absolute;
+	right: 22px; top: 240px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#container .catalogue-list li .cl-buy:hover {
+	background-color: #c10100;
+	color: #fff;
+}
+
+#container #left {
+	float: left;
+	font-size: 12px;
+	padding: 115px 25px 50px;
+	width: 170px;
+}
+
+#container #left .l-menu {
+	text-transform: uppercase;
+}
+
+#container #left .l-menu li {
+	overflow: hidden;
+	padding-bottom: 5px;
+}
+
+#container #left .l-menu li a, #container #left .l-menu li span {
+	display: block;
+	float: left;
+	padding: 3px 10px;
+}
+
+#container #left .l-menu li a {color: #292929; text-decoration: none;}
+#container #left .l-menu li a:hover {background: #ccc;}
+
+#container #left .l-menu li span {background: #c40000; color: #fff;}
+
+#container #right {
+	float: left;
+	padding: 40px 0 30px;
+	width: 720px;
+}
+
+#container #right .payments {
+	display: block;
+	overflow: hidden;
+	padding-right: 50px;
+}
+
+#container #right .payments img {
+	display: block;
+	float: right;
+}
+
+#container #right .content h1 {
+	color: #000;
+	font-size: 38px;
+	font-weight: normal;
+	line-height: 100%;
+	padding-bottom: 40px;
+	text-transform: uppercase;
+}
+
+#container #right .content {
+	color: #4e4e4e;
+	font-size: 14px;
+	line-height: 140%;
+	overflow: hidden;
+	padding-bottom: 30px;
+}
+
+#container #right .content .sub-title {
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+	padding-bottom: 15px;
+}
+
+#container #right .content ul, #container #right .content ol {padding-bottom: 5px;}
+#container #right .content p {padding-bottom: 15px;}
+
+#container #right .content ul, #container #right .content ol, #container #right .content ul, #container #right .content p {padding-right: 50px;}
+
+#container #right .content ol {
+	list-style: decimal;
+	list-style-position: inside;
+}
+
+#container #right .content ul {
+	list-style: disc;
+	padding-left: 30px;
+}
+
+#container #right .content ul ul, #container #right .content ol ul {
+	list-style: none;
+	padding-top: 10px;
+	padding-bottom: 0;
+}
+
+#container #right .content ol li, #container #right .content ul li {padding-bottom: 10px;}
+
+#container #right .content table {margin-bottom: 15px;}
+#container #right .content table td {border: 1px solid #ddd; padding: 5px 10px; }
+
+.footer-space {clear: both; height: 315px; width: 940px; margin: 0 auto}
+#footer {
+	background: #4d0000 url(/img/f-bg.gif);
+	font-size: 11px;
+	height: 315px;
+	margin: -315px auto 0;
+	padding: 0;
+	position: relative;
+	width: 100%;
+}
+
+#footer .f-inside {
+	color: #fff;
+	margin: 0 auto;
+	padding-top: 40px;
+	width: 940px;
+}
+
+#footer .f-inside a {color: #fff;}
+#footer .f-inside a:hover {color: #ff0100; text-decoration: underline;}
+
+#footer .f-inside .fi-item {
+	float: left;
+	padding-right: 20px;
+	width: 220px;
+}
+
+#footer .f-inside .fi-item ul {
+	padding-bottom: 18px;
+	text-transform: uppercase;
+}
+
+#footer .f-inside .fi-item ul li {padding-bottom: 3px;}
+
+#footer .f-inside .f-search {
+	background: url(/img/f-search-bg.png) no-repeat;
+	height: 32px;
+	overflow: hidden;
+	padding-left: 10px;
+	margin-top: 10px;
+	text-transform: uppercase;
+	width: 168px;
+}
+
+#footer .f-inside .f-search input {
+	background: none;
+	border: none;
+	color: #fff;
+	float: left;
+	padding: 0;
+	text-transform: uppercase;
+	height: 32px;
+	width: 128px;
+}
+
+#footer .f-inside .f-search input[type="submit"] {
+	background: url(/img/f-search-btn.png) no-repeat 5px center;
+	cursor: pointer;
+	overflow: hidden;
+	text-indent: -1000px;
+	width: 40px;
+}
+
+#footer .f-inside .fi-item-last {padding-right: 0;}
+
+#footer .f-inside .f-notice {
+	padding-bottom: 40px;
+	text-transform: uppercase;
+}
+
+#footer .f-inside .f-notice a {text-decoration: none;}
+
+#footer .f-inside .f-social {
+	height: 33px;
+	margin-bottom: 55px;
+	overflow: hidden;
+}
+
+#footer .f-inside .f-social a {
+	background: url(/img/f-social.png) no-repeat;
+	color: #fff;
+	display: block;
+	float: left;
+	height: 33px;
+	margin-right: 15px;
+	overflow: hidden;
+	text-indent: -1000px;
+	width: 32px;
+}
+
+#footer .f-inside .f-social .f-vk {background-position: 0 0;}
+#footer .f-inside .f-social .f-vk:hover {background-position: 0 -33px;}
+
+#footer .f-inside .f-social .f-fb {background-position: -32px 0;}
+#footer .f-inside .f-social .f-fb:hover {background-position: -32px -33px;}
+
+#footer .f-inside .f-social .f-li {background-position: -64px 0;}
+#footer .f-inside .f-social .f-li:hover {background-position: -64px -33px;}
+
+#footer .f-inside .f-social .f-tw {background-position: -96px 0;}
+#footer .f-inside .f-social .f-tw:hover {background-position: -96px -33px;}
+
+#footer .f-inside .f-develop {overflow: hidden;}
+
+#footer .f-inside .f-develop .zero-logo {
+	background: url(/img/zero-logo.png) no-repeat;
+	display: block;
+	float: left;
+	height: 24px;
+	overflow: hidden;
+	text-indent: -1000px;
+	width: 72px;
+}
+
+#footer .f-inside .f-develop span {
+	float: right;
+	font-size: 13px;
+}
+
+

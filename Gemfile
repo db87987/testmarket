@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -44,7 +44,7 @@ gem 'haml' , :git => 'https://github.com/haml/haml.git', :branch => '3-2-stable'
 # To use debugger
 # gem 'debugger'
 
-gem 'spree', '= 1.1.3' #:git => "git://github.com/spree/spree.git", :branch => '1-1-stable'
+gem 'spree', :git => "git://github.com/spree/spree.git", :branch => '1-1-stable'
 gem 'rails-i18n'
 gem 'spree_i18n', :git => 'git://github.com/spree/spree_i18n.git'
 
