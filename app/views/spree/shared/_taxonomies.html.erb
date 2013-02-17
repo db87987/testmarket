@@ -5,10 +5,9 @@
 
 
 	<div id="catalogue-menu">
-		<span class="cm-title">каталог товаров</span>
+		<span class="cm-title cm-title-grey">у нас кое что есть для вас:</span>
 		
 	  <% get_taxonomies.each do |taxonomy| %>		
-			<%= t(:shop_by_taxonomy, :taxonomy => taxonomy.name.singularize) %>
 			<%= taxons_tree(taxonomy.root, @taxon, Spree::Config[:max_level_in_taxons_menu] || 1) %>
    	  <% end %>	
 			

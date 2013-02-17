@@ -5,28 +5,22 @@
 		
 			<div class="right-idx">
 				<ul class="bc bc-cat-item">
-					<li><a href="catalogue.html">Гитары</a></li>
-					<li>></li>
-					<li><a href="catalogue.html">Акустические, бас, электро, классические гитары</a></li>
-					<li>></li>
-					<li><span>Бас-гитары</span></li>
+					<%= breadcrumbs(@taxon) %> 
 				</ul>
 				
 				<div class="catalogue-element">
 					<div class="ce-image-wrap">
-						<span class="ce-image-l big-img">
-							<a data-fancybox-group="button" id="link_middle_photo_main" class="fancybox-buttons" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-1-l.jpg"><img src="/img/picture/guitar-1-m.jpg" width="300" height="247" alt="GREG BENNETT DB5/FM"></a>
-							<a style="display: none;" data-fancybox-group="button" id="link_middle_photo_57983" class="fancybox-buttons" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-2-l.jpg"><img src="/img/picture/guitar-2-m.jpg" width="300" height="247" alt="GREG BENNETT DB5/FM"></a>
-							<a style="display: none;" data-fancybox-group="button" id="link_middle_photo_57984" class="fancybox-buttons" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-3-l.jpg"><img src="/img/picture/guitar-3-m.jpg" width="300" height="247" alt="GREG BENNETT DB5/FM"></a>
-							<a style="display: none;" data-fancybox-group="button" id="link_middle_photo_57985" class="fancybox-buttons" title="GREG BENNETT DB5/FMk" href="/img/picture/guitar-4-l.jpg"><img src="/img/picture/guitar-4-m.jpg" width="300" height="247" alt="GREG BENNETT DB5/FM"></a>
+						<span id="main-image" class="ce-image-l big-img">
+							  <%= product_image(@product, :itemprop => "image") %>
 						</span>
 			
-						<ul class="cs-sm-images">
-							<li class="active"><a rel="middle_photo_main" data-fancybox-group="button" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-1-m.jpg"><img src="/img/picture/guitar-1-s.jpg" width="60" height="60" alt="GREG BENNETT DB5/FM"></a></li>
-							<li><a rel="middle_photo_57983" data-fancybox-group="button" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-2-m.jpg"><img src="/img/picture/guitar-2-s.jpg" width="60" height="60" alt="GREG BENNETT DB5/FM"></a></li>
-							<li><a rel="middle_photo_57984" data-fancybox-group="button" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-3-m.jpg"><img src="/img/picture/guitar-3-s.jpg" width="60" height="60" alt="GREG BENNETT DB5/FM"></a></li>
-							<li><a rel="middle_photo_57985" data-fancybox-group="button" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-4-m.jpg"><img src="/img/picture/guitar-4-s.jpg" width="60" height="60" alt="GREG BENNETT DB5/FM"></a></li>
+						<% if @product.images.size > 1 || @product.variant_images.size > 0 %>
+						  <ul id="product-thumbnails" class="thumbnails inline" data-hook>
+						    <% @product.images.each do |i| %>
+						      <li class="tmb-all" id="tmb-<%= i.id.to_s %>"><%= link_to image_tag(i.attachment.url(:mini)), i.attachment.url(:product) %></li>
+						    <% end %>
 						</ul>
+						<% end %>
 					</div>
 		
 					<div class="ce-text">
@@ -45,7 +39,7 @@
 								<a href="#" title="Меньше" class="minus"></a>
 							</div>
 							
-							<span class="bb-price">26 389 руб.</span>
+							<span class="bb-price"><%= number_to_currency @product.price %></span>
 						</div>
 					</div>
 				</div>
@@ -62,21 +56,16 @@
 					</div>
 				</div>
 				
+				
+				<% unless @product_properties.empty? %>
 				<div class="descr-block">
 					<div class="content" id="descr-detail">
-						<p>Корпус: красное дерево.</p>
-						<p>Гриф: клен (сквозной).</p>
-						<p>Накладка грифа: индийский палисандр. </p>
-						<p>Механика: колки (Die-Cast)</p>
-						<p>Электроника: активная, звукосниматели JB+JB (Duncan Design), 2 регулятора громкости, 2 регулятора тембра.</p>
-					</div>
-					
-					<div class="content" id="descr-media">
-						<p>erewrer r ere r</p>
-						<p>werewre</p>
-						<p>erererererererwerer r wer wer ewr ewr ewrer ee</p>
+						<% for product_property in @product_properties %>
+						<p><%= product_property.property.presentation %>: <%= product_property.value %></p>
+						<% end %>
 					</div>
 				</div>
+				<% end %>
 				
 				<span class="recom-title">с этим товаром также смотрят:</span>
 				<ul class="catalogue-list cl-inside">

@@ -14,7 +14,6 @@
 //= require_tree .
 
 //= require store/jquery.carouFredSel-6.1.0-packed
-//= require store/jquery-1.9.1.min
 //= require store/spree_promo
 
 //= require store/spree_essential_menus
