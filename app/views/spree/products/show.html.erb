@@ -1,45 +1,122 @@
-<div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
-  <% @body_id = 'product-details' %>
+	<div id="middle">
+		<div class="middle-idx">
+			
+			<%= render :partial => 'spree/shared/taxonomies' %>
+		
+			<div class="right-idx">
+				<ul class="bc bc-cat-item">
+					<li><a href="catalogue.html">Гитары</a></li>
+					<li>></li>
+					<li><a href="catalogue.html">Акустические, бас, электро, классические гитары</a></li>
+					<li>></li>
+					<li><span>Бас-гитары</span></li>
+				</ul>
+				
+				<div class="catalogue-element">
+					<div class="ce-image-wrap">
+						<span class="ce-image-l big-img">
+							<a data-fancybox-group="button" id="link_middle_photo_main" class="fancybox-buttons" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-1-l.jpg"><img src="/img/picture/guitar-1-m.jpg" width="300" height="247" alt="GREG BENNETT DB5/FM"></a>
+							<a style="display: none;" data-fancybox-group="button" id="link_middle_photo_57983" class="fancybox-buttons" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-2-l.jpg"><img src="/img/picture/guitar-2-m.jpg" width="300" height="247" alt="GREG BENNETT DB5/FM"></a>
+							<a style="display: none;" data-fancybox-group="button" id="link_middle_photo_57984" class="fancybox-buttons" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-3-l.jpg"><img src="/img/picture/guitar-3-m.jpg" width="300" height="247" alt="GREG BENNETT DB5/FM"></a>
+							<a style="display: none;" data-fancybox-group="button" id="link_middle_photo_57985" class="fancybox-buttons" title="GREG BENNETT DB5/FMk" href="/img/picture/guitar-4-l.jpg"><img src="/img/picture/guitar-4-m.jpg" width="300" height="247" alt="GREG BENNETT DB5/FM"></a>
+						</span>
+			
+						<ul class="cs-sm-images">
+							<li class="active"><a rel="middle_photo_main" data-fancybox-group="button" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-1-m.jpg"><img src="/img/picture/guitar-1-s.jpg" width="60" height="60" alt="GREG BENNETT DB5/FM"></a></li>
+							<li><a rel="middle_photo_57983" data-fancybox-group="button" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-2-m.jpg"><img src="/img/picture/guitar-2-s.jpg" width="60" height="60" alt="GREG BENNETT DB5/FM"></a></li>
+							<li><a rel="middle_photo_57984" data-fancybox-group="button" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-3-m.jpg"><img src="/img/picture/guitar-3-s.jpg" width="60" height="60" alt="GREG BENNETT DB5/FM"></a></li>
+							<li><a rel="middle_photo_57985" data-fancybox-group="button" title="GREG BENNETT DB5/FM" href="/img/picture/guitar-4-m.jpg"><img src="/img/picture/guitar-4-s.jpg" width="60" height="60" alt="GREG BENNETT DB5/FM"></a></li>
+						</ul>
+					</div>
+		
+					<div class="ce-text">
+						<h2>GREG BENNETT DB5/FM</h2>
 
-  <div class="columns six alpha" data-hook="product_left_part">
-    <div class="row" data-hook="product_left_part_wrap">
-
-      <div id="product-images" data-hook="product_images">
-        <div id="main-image" data-hook>
-          <%= render :partial => 'image' %>
-        </div>
-        <div id="thumbnails" data-hook>
-          <%= render :partial => 'thumbnails', :locals => { :product => @product } %>
-        </div>
-      </div>
-
-      <div data-hook="product_properties">
-        <%= render :partial => 'properties' %>
-      </div>
-    
-    </div>
-  </div>
-
-  <div class="columns ten omega" data-hook="product_right_part">
-    <div class="row" data-hook="product_right_part_wrap">
-
-      <div id="product-description" data-hook="product_description">
-
-        <h1 class="product-title" itemprop="name"><%= accurate_title %></h1>
-
-        <div itemprop="description" data-hook="description">
-          <%= product_description(@product) rescue t(:product_has_no_description) %>
-        </div>
-
-        <div id="cart-form" data-hook="cart_form">
-          <%= render :partial => 'cart_form' %>
-        </div>
-
-      </div>
-
-      <%= render :partial => 'taxons' %>
-
-    </div>
-  </div>
-
+						<span class="ce-short-title">Краткое описание</span>
+						<div class="content">
+							<p>GregBennett DB5/FM - Бас-гит, 24 л.34", JB+JB, 2V+2T GregBennett DB5/FM - Бас-гит, 24 л.34", JB+JB, 2V+2T GregBennett DB5/FM - Бас-гит, 24 л.34", JB+JB, 2V+2T GregBennett DB5/FM - Бас-гит, 24 л.34", JB+JB, 2V+2TGregBennett DB5/FM - Бас-гит, 24 л.34", JB+JB, 2V+2T GregBennett DB5/FM - Бас-гит, 24 л.34", JB+JB, 2V+2T</p>
+						</div>
+						
+						<div class="buy-block">
+							<a href="#" class="bb-button">Купить</a>
+							<div class="bb-quantity">
+								<input type="text" value="1" />
+								<a href="#" title="Больше" class="plus"></a>
+								<a href="#" title="Меньше" class="minus"></a>
+							</div>
+							
+							<span class="bb-price">26 389 руб.</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="ce-tabs">
+				<ul>
+					<li class="active"><a href="descr-detail">подробное описание</a></li>
+					<li><a href="descr-media">Медиа, инструкции</a></li>
+				</ul>
+				
+					<div class="ce-social-share">
+						<script type="text/javascript" src="http://yandex.st/share/share.js" charset="utf-8"></script>
+						<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="link" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir"></div> 
+					</div>
+				</div>
+				
+				<div class="descr-block">
+					<div class="content" id="descr-detail">
+						<p>Корпус: красное дерево.</p>
+						<p>Гриф: клен (сквозной).</p>
+						<p>Накладка грифа: индийский палисандр. </p>
+						<p>Механика: колки (Die-Cast)</p>
+						<p>Электроника: активная, звукосниматели JB+JB (Duncan Design), 2 регулятора громкости, 2 регулятора тембра.</p>
+					</div>
+					
+					<div class="content" id="descr-media">
+						<p>erewrer r ere r</p>
+						<p>werewre</p>
+						<p>erererererererwerer r wer wer ewr ewr ewrer ee</p>
+					</div>
+				</div>
+				
+				<span class="recom-title">с этим товаром также смотрят:</span>
+				<ul class="catalogue-list cl-inside">
+					<li class="cl-item-first">
+						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
+						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
+						
+						<span class="cl-price">530 125 руб.</span>
+						<a href="#" class="cl-buy">купить</a>
+					</li>
+					
+					<li>
+						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
+						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
+						
+						<span class="cl-price">530 125 руб.</span>
+						<a href="#" class="cl-buy">купить</a>
+					</li>
+					
+					<li>
+						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
+						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
+						
+						<span class="cl-price">530 125 руб.</span>
+						<a href="#" class="cl-buy">купить</a>
+					</li>
+					
+					<li class="cl-item-four">
+						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
+						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
+						
+						<span class="cl-price">530 125 руб.</span>
+						<a href="#" class="cl-buy">купить</a>
+					</li>
+				</ul>
+				
+				<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">Allmusicmarket © 2012. Все права защищены, блять. Пошли все нахуй</div>
+	<div class="footer-space"></div>
 </div>

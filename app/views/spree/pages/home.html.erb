@@ -1,7 +1,4 @@
 <%= render :partial => 'spree/shared/slider' %>
+<%= render :partial => 'spree/shared/products', :locals => { :products => @products } %>
 
-
-<div data-hook="homepage_products">
-  <%= render :partial => 'spree/shared/products', :locals => { :products => @products } %>
-</div>
 

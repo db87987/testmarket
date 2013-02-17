@@ -16,17 +16,20 @@
 				<% end %>
 
 				<% if products.any? %>
-				<% products.each do |product| %>
-				
 				<ul class="catalogue-list">
-					<li>
+				<% products.each do |product| %>
+				<% if Spree::Config[:show_zero_stock_products] || product.has_stock? %>
+				
+					<li class="<%= cycle("cl-item-first", "", "", :name => "classes") %>">
 						<%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url', :class => 'cl-img' %>
 						<span class="cl-title"><%= link_to truncate(product.name, :length => 50), product, :itemprop => "name", :title => product.name %></span>
 						<p><%= truncate(product_description(product), :length => 50) rescue t(:product_has_no_description) %></p>
 						<span class="cl-price">53 125 руб.</span>
 						<a href="#" class="cl-buy">купить</a>
 					</li>
+					<% end %>
 				<% end %>
+				<% reset_cycle("classes") %>
 				<% end %>
 				</ul>
 			</div>
