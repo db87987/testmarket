@@ -6,30 +6,22 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require_self
 //= require store/spree_core
 //= require store/spree_auth
 //= require store/spree_promo
-
-//= require_tree .
-
-//= require store/jquery.carouFredSel-6.1.0-packed
-//= require store/spree_promo
-
 //= require store/spree_essential_menus
-//= require_self
+//= require_tree .
+//= require store/jquery.carouFredSel-6.1.0-packed
 
-// A.V.Plotnikov, verstalo.com
 
-$(document).ready(function()
-{
+$(document).ready(function(){
+	
 	$("#slider-idx ul").carouFredSel({
 		auto 			: {pauseDuration: 5000}, 
    	pagination  : "#s-pagination"
 	});
-});
-
-$(document).ready(function(){
+	
 	// имитация radiobutton
 	$(".group-radio label").click(function(){
 		$(this).addClass('checked').parent().siblings('li').find('label').removeClass('checked');
@@ -57,6 +49,8 @@ $(document).ready(function(){
 		$(this).attr('src', newImg);
 		$(this).attr('rel', oldImg);
 	});
+	
+
 	
  });
 
