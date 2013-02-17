@@ -122,17 +122,17 @@ body {background: #1c1c1c url(/img/bg.gif);}
 #container .banners-small li .bs-title, #container .banners-small li .bs-link, #middle .catalogue-element .ce-text .buy-block .bb-button {font-family: pf_highway_sans_promedium, Arial, Tahoma, Verdana, sans-serif;}
 #container .slider-wrap ul li .slider-text .st-title, #container .catalogue-list li .cl-buy, #middle .catalogue-element .ce-short-title, #middle .ce-tabs ul li * {font-family: pf_highway_sans_probold, Arial, Tahoma, Verdana, sans-serif;}
 
-#header .h-notice, #m-menu ul li a, #container #middle #catalogue-menu ul li .active, #container #middle #catalogue-menu ul li .active span, #container #left .l-menu li *, #container ul.bc-cat-item * {font-family: pf_din_text_cond_promedium, Arial, Tahoma, Verdana, sans-serif;}
+#header .h-notice, #m-menu ul li a, #container #middle #catalogue-menu ul li .active, #container #middle #catalogue-menu ul li .active span, #container #left .l-menu li *, #container ul.bc-cat-item *, #container .news-item .ni-back a, #container .search-title-l {font-family: pf_din_text_cond_promedium, Arial, Tahoma, Verdana, sans-serif;}
 #header .h-phone {font-family: pf_dintext_promedium, Arial, Tahoma, Verdana, sans-serif;}
 #header .h-phone span {font-family: pf_din_text_cond_probold, Arial, Tahoma, Verdana, sans-serif;}
 
 #footer .f-inside .fi-item ul li a, #footer .f-inside .f-notice, #footer .f-inside .f-develop span, #footer .f-inside .f-search input, 
-#footer .f-inside a {font-family: pf_dintext_proregular, Arial, Tahoma, Verdana, sans-serif;}
+#footer .f-inside a, #container .l-search input {font-family: pf_dintext_proregular, Arial, Tahoma, Verdana, sans-serif;}
 #container #middle #catalogue-menu ul li a, #container #middle #catalogue-menu ul li a span, #container .bc * {font-family: pf_din_text_cond_proregular, Arial, Tahoma, Verdana, sans-serif;}
 
 #container .recom-title, #middle .catalogue-element .ce-text h2 {font-family: pf_highway_sans_prolight, Arial, Tahoma, Verdana, sans-serif;}
 
-#container .content h1 {font-family: pf_din_text_cond_prolight, Arial, Tahoma, Verdana, sans-serif;}
+#container h1 {font-family: pf_din_text_cond_prolight, Arial, Tahoma, Verdana, sans-serif;}
 
 #container {
 	margin: 0 auto;
@@ -654,13 +654,14 @@ body {background: #1c1c1c url(/img/bg.gif);}
 	float: right;
 }
 
-#container .content h1 {
+#container h1 {
 	color: #000;
 	font-size: 38px;
 	font-weight: normal;
 	line-height: 100%;
-	padding-bottom: 40px;
+	padding-bottom: 35px;
 	text-transform: uppercase;
+	width: 665px;
 }
 
 #container .content {
@@ -738,6 +739,11 @@ body {background: #1c1c1c url(/img/bg.gif);}
 
 #container .paging li a, #container .paging li span {font-weight: bold;}
 #container .paging li a {color: #66a2bb}
+
+#container .paging li a:hover {
+	color: #c10100;
+	text-decoration: underline;
+}
 
 #container .recom-title {
 	color: #c10100;
@@ -943,6 +949,127 @@ body {background: #1c1c1c url(/img/bg.gif);}
 
 #middle .descr-block #descr-media {display: none;}
 
+#container .news-list {padding-bottom: 30px!important;}
+
+#container .news-list dl {
+	margin-top: -20px;
+	padding-bottom: 50px;
+	width: 665px;
+}
+
+#container .news-list dt {
+	padding-top: 15px;
+	padding-bottom: 10px;
+}
+
+#container .news-list dt a {
+	color: #4e4e4e;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#container .news-list dt a:hover {color: #c10100;}
+
+#container .news-list dt span, #container .news-list dd a, #container .news-item .ni-date {
+	color: #979797;
+	display: block;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#container .news-list dd p {
+	color: #4e4e4e;
+	font-size: 14px;
+	padding-bottom: 5px;
+}
+
+#container .news-list dd a {
+	color: #66a2bb;
+	display: inline;
+}
+
+#container .news-list dd a:hover {
+	color: #c10100;
+	text-decoration: underline;
+}
+
+#container .news-list dd, #container .search-results dl dd {
+	background: url(/img/dots.png) repeat-x bottom left;
+	padding-bottom: 20px;
+}
+
+#container .news-list .paging, #container .search-results .paging {padding-left: 0;}
+#container .news-list dd.last, #container .search-results dl dd.last {background: none;}
+
+#container .news-item h1 {
+	font-size: 28px;
+	line-height: 120%;
+	padding-bottom: 5px;
+}
+
+#container .news-item .ni-back {
+	font-size: 12px;
+	text-transform: uppercase;
+	height: 75px;
+}
+
+#container .news-item .ni-back a {
+	background: #666 url(/img/back-bg.png) repeat-x left bottom;
+	color: #fff;
+	display: block;
+	float: left;
+	padding: 3px 15px 2px;
+	text-decoration: none;
+}
+
+#container .news-item .ni-date {padding-bottom: 30px;}
+
+#container .search-title-l {
+	display: block;
+	font-size: 12px;
+	padding-bottom: 15px;
+	text-transform: uppercase;
+}
+
+#container .search-results .search-text {
+	color: #4e4e4e;
+	font-size: 16px;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+#container .search-results {color: #919599; font-size: 14px; padding-bottom: 30px!important;}
+#container .search-results dl {padding-bottom: 30px;}
+#container .search-results dl dd {padding-left: 30px;	padding-bottom: 10px;}
+#container .search-results dl dd p {padding-bottom: 10px;}
+
+#container .search-results dl dt {
+	overflow: hidden;
+	padding-top: 15px;
+	padding-bottom: 10px;
+}
+
+#container .search-results dl dt span {
+	display: block;
+	float: left;
+	width: 30px;
+}
+
+#container .search-results dl dt a {
+	color: #66a2bb;
+	font-size: 11px;
+	font-weight: bold;
+	float: left;
+	text-transform: uppercase;
+}
+
+#container .search-results dl dt a:hover {
+	color: #c10100;
+	text-decoration: underline;
+}
+
 .footer-space {clear: both; height: 315px; width: 940px; margin: 0 auto}
 #footer {
 	background: #4d0000 url(/img/f-bg.gif);
@@ -977,7 +1104,7 @@ body {background: #1c1c1c url(/img/bg.gif);}
 
 #footer .f-inside .fi-item ul li {padding-bottom: 3px;}
 
-#footer .f-inside .f-search {
+#footer .f-inside .f-search, #container .l-search {
 	background: url(/img/f-search-bg.png) no-repeat;
 	height: 32px;
 	overflow: hidden;
@@ -987,7 +1114,7 @@ body {background: #1c1c1c url(/img/bg.gif);}
 	width: 168px;
 }
 
-#footer .f-inside .f-search input {
+#footer .f-inside .f-search input, #container .l-search input {
 	background: none;
 	border: none;
 	color: #fff;
@@ -998,13 +1125,26 @@ body {background: #1c1c1c url(/img/bg.gif);}
 	width: 128px;
 }
 
-#footer .f-inside .f-search input[type="submit"] {
+#footer .f-inside .f-search input[type="submit"], #container .l-search input[type="submit"] {
 	background: url(/img/f-search-btn.png) no-repeat 5px center;
 	cursor: pointer;
 	overflow: hidden;
 	text-indent: -1000px;
 	width: 40px;
 }
+
+#container .l-search {
+	background: url(/img/l-search-bg.png) no-repeat;
+	margin-top: 0;
+	width: 148px;
+}
+
+#container .l-search input {
+	color: #4e4e4e;
+	width: 108px;
+}
+
+#container .l-search input[type="submit"] {background-image: url(/img/l-search-btn.png);}
 
 #footer .f-inside .fi-item-last {padding-right: 0;}
 

@@ -8,7 +8,7 @@
 		<span class="cm-title cm-title-grey">у нас кое что есть для вас:</span>
 		
 	  <% get_taxonomies.each do |taxonomy| %>		
-			<%= taxons_tree(taxonomy.root, @taxon, Spree::Config[:max_level_in_taxons_menu] || 1) %>
+			<%= taxons_tree(taxonomy.root, @taxon, Spree::Config[:max_level_in_taxons_menu] || 5) %>
    	  <% end %>	
 			
 	</div>
