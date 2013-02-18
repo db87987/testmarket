@@ -99,7 +99,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 html,body,div,span,object,h1,h2,h3,h4,h5,h6,p,a,abbr,em,b,strong,dl,dt,dd,ol,ul,li,form,label,table,tbody,tfoot,thead,tr,th,td {margin: 0;padding: 0;}
 * {font-family: Arial, Tahoma, Verdana, sans-serif; font-size: 100.01%; outline: none;}
 
@@ -419,7 +418,7 @@ body {background: #1c1c1c url(/img/bg.gif);}
 
 #container #middle #catalogue-menu ul {padding: 30px 0 20px;}
 #container #middle #catalogue-menu ul li {margin-bottom: 5px;}
-#container #middle #catalogue-menu ul ul {padding: 5px 0 0 10px;}
+#container #middle #catalogue-menu ul ul {display: none; padding: 5px 0 0 10px;}
 #container #middle #catalogue-menu ul ul li {margin-bottom: 0;}
 #container #middle #catalogue-menu ul ul li a {background: none; padding-left: 27px}
 
