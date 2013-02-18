@@ -8,7 +8,7 @@
 		<span class="cm-title cm-title-grey">у нас кое что есть для вас:</span>
 		
 	  <% get_taxonomies.each do |taxonomy| %>		
-			<%= taxons_tree(taxonomy.root, @taxon, 5) %>
+			<%= taxons_tree(taxonomy.root, @taxon, 2) %>
    	  <% end %>	
 			
 	</div>
