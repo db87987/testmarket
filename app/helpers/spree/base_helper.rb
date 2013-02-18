@@ -123,21 +123,21 @@ module Spree
       content_tag(:nav, crumb_list, :id => 'breadcrumbs')
     end
 
-    def taxons_tree(root_taxon, current_taxon, max_level = 1)
-      return '' if max_level < 1 || root_taxon.children.empty?
-      content_tag :ul do
-        root_taxon.children.map do |taxon|
-          css_class = (current_taxon && current_taxon.self_and_ancestors.include?(taxon)) ? 'current' : nil
-          content_tag :li do
-            if current_taxon == root_taxon
-              link_to(content_tag(:span, taxon.name), seo_url(taxon)) + taxons_tree(taxon, current_taxon, max_level - 1)
-            else
-              link_to(taxon.name, seo_url(taxon)) + taxons_tree(taxon, current_taxon, max_level - 1)
-            end
+    def taxons_tree(root_taxon, current_taxon, max_level = 1, is_root = true)
+          return '' if max_level < 1 || root_taxon.children.empty?
+          content_tag :ul do
+            root_taxon.children.map do |taxon|
+              css_class = (current_taxon && current_taxon.self_and_ancestors.include?(taxon)) ? 'current' : nil
+              content_tag :li do
+                if is_root
+                  link_to(content_tag(:span, taxon.name), seo_url(taxon)) + taxons_tree(taxon, current_taxon, max_level - 1, false)
+                else
+                  link_to(taxon.name, seo_url(taxon)) + taxons_tree(taxon, current_taxon, max_level - 1, false)
+                end
+              end
+            end.join("\n").html_safe
           end
-        end.join("\n").html_safe
-      end
-    end
+        end
 
     def available_countries
       countries = Zone.find_by_name(Spree::Config[:checkout_zone]).try(:country_list) || Country.all
