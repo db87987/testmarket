@@ -1,5 +1,7 @@
 module Spree
   module BaseHelper
+    
+    
 
     # Defined because Rails' current_page? helper is not working when Spree is mounted at root.
     def current_spree_page?(url)
@@ -127,7 +129,11 @@ module Spree
         root_taxon.children.map do |taxon|
           css_class = (current_taxon && current_taxon.self_and_ancestors.include?(taxon)) ? 'current' : nil
           content_tag :li do
-          link_to(content_tag(:span, taxon.name), seo_url(taxon)) + taxons_tree(taxon, current_taxon, max_level - 1)
+            if current_taxon == root_taxon
+              link_to(content_tag(:span, taxon.name), seo_url(taxon)) + taxons_tree(taxon, current_taxon, max_level - 1)
+            else
+              link_to(taxon.name, seo_url(taxon)) + taxons_tree(taxon, current_taxon, max_level - 1)
+            end
           end
         end.join("\n").html_safe
       end
