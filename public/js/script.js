@@ -41,8 +41,34 @@ $(document).ready(function(){
 		var thisHref = $(this).attr("href");
 		
 		$(this).parent().addClass("active").siblings("li").removeClass("active");
-		$("#" + thisHref).show().siblings("div").hide();
+		$(thisHref).show().siblings("div").hide();
 		
 		return false;
 	});
+	
+	// Аккордеон левого меню каталога
+	$("#catalogue-menu > ul > li > a").click(function(){
+		$(this).toggleClass("active").next("ul").slideToggle().
+		parent().siblings("li").find("a:first").removeClass("active").next("ul").slideUp();
+		
+		return false;
+	});
+	
+	// Клик по табам фото и видео
+	$(".photovideo-tabs li a").click(function(){
+		var thisHref = $(this).attr("href");
+		
+		$(this).parent().addClass("active").siblings("li").removeClass("active");
+		$(thisHref).show().siblings("ul").hide();
+		
+		return false;
+	});
+	
+	// Отзывы
+	$(".reviews-list dt").click(function(){
+		$(this).next("dd").slideToggle().siblings("dd").slideUp();
+		
+		return false;
+	});
+	
  });

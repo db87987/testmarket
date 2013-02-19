@@ -130,7 +130,7 @@ body {background: #1c1c1c url(../img/bg.gif);}
 
 #container .recom-title, #middle .catalogue-element .ce-text h2 {font-family: pf_highway_sans_prolight, Arial, Tahoma, Verdana, sans-serif;}
 
-#container h1 {font-family: pf_din_text_cond_prolight, Arial, Tahoma, Verdana, sans-serif;}
+#container h1, #container .photovideo-tabs * {font-family: pf_din_text_cond_prolight, Arial, Tahoma, Verdana, sans-serif;}
 
 #container {
 	margin: 0 auto;
@@ -417,7 +417,7 @@ body {background: #1c1c1c url(../img/bg.gif);}
 
 #container #middle #catalogue-menu ul {padding: 30px 0 20px;}
 #container #middle #catalogue-menu ul li {margin-bottom: 5px;}
-#container #middle #catalogue-menu ul ul {padding: 5px 0 0 10px;}
+#container #middle #catalogue-menu ul ul {display: none; padding: 5px 0 0 10px;}
 #container #middle #catalogue-menu ul ul li {margin-bottom: 0;}
 #container #middle #catalogue-menu ul ul li a {background: none; padding-left: 27px}
 
@@ -626,7 +626,7 @@ body {background: #1c1c1c url(../img/bg.gif);}
 #container #left .l-menu li a, #container #left .l-menu li span {
 	display: block;
 	float: left;
-	padding: 3px 10px;
+	padding: 3px 10px 2px;
 }
 
 #container #left .l-menu li a {color: #292929; text-decoration: none;}
@@ -721,8 +721,10 @@ body {background: #1c1c1c url(../img/bg.gif);}
 }
 
 #container .bc li {float: left; padding-right: 5px;}
-#container .bc li a {color: #000;	text-decoration: none;}
+#container .bc li a {color: #000}
 #container .bc li a:hover, #container .bc li span {color: #c10100}
+
+#container .bc li a:hover {text-decoration: underline;}
 
 #container .paging {
 	color: #979797;
@@ -1014,12 +1016,17 @@ body {background: #1c1c1c url(../img/bg.gif);}
 }
 
 #container .news-item .ni-back a {
-	background: #666 url(../img/back-bg.png) repeat-x left bottom;
-	color: #fff;
+	background: #f1f1f1;
+	color: #000;
 	display: block;
 	float: left;
-	padding: 3px 15px 2px;
+	padding: 3px 10px 2px;
 	text-decoration: none;
+}
+
+#container .news-item .ni-back a:hover {
+	background: #c40000;
+	color: #fff;
 }
 
 #container .news-item .ni-date {padding-bottom: 30px;}
@@ -1066,6 +1073,198 @@ body {background: #1c1c1c url(../img/bg.gif);}
 #container .search-results dl dt a:hover {
 	color: #c10100;
 	text-decoration: underline;
+}
+
+#container .photovideo-lists {padding-bottom: 30px;}
+
+#container .photo-list, #container .video-list {
+	overflow: hidden;
+	padding-left: 33px;
+}
+
+#container .photo-list li {
+	float: left;
+	height: 270px;
+	overflow: hidden;
+	width: 300px;
+}
+
+#container .photo-list li a {
+	color: #4e4e4e;
+	display: block;
+	float: left;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+#container .photo-list li a img {
+	border: 1px solid #dfdfdf;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;	
+	border-radius: 4px;
+	padding: 4px;
+}
+
+#container .photo-list li a:hover {text-decoration: underline;}
+#container .photo-list li a:hover img {border-color: #08c;}
+
+#container .photo-list li a span {
+	display: block;
+	padding-top: 5px;
+	width: 271px;
+}
+
+#container .photovideo-tabs {
+	font-size: 38px;
+	padding: 40px 33px 30px;
+	text-transform: uppercase;
+}
+
+#container .photovideo-tabs li {
+	display: inline;
+	padding-right: 80px;
+}
+
+#container .photovideo-tabs li a {color: #ccc;}
+#container .photovideo-tabs li a:hover {color: #08c;}
+
+#container .photovideo-tabs .active a {
+	color: #000;
+	cursor: default;
+	text-decoration: none;
+}
+
+#container .photovideo-tabs .active a:hover {color: #000;}
+
+#container .video-list li {
+	float: left;
+	font-size: 14px;
+	overflow: hidden;
+	height: 320px;
+	width: 440px;
+}
+
+#container .video-list li span {
+	color: #4e4e4e;
+	display: block;
+	padding-top: 5px;
+	width: 350px;
+}
+
+#container .y-map {margin-bottom: 20px;}
+
+#container #video-list {display: none;}
+
+#container .reviews-list {
+	font-size: 13px;
+	padding-bottom: 60px;
+	width: 665px;
+}
+
+#container .reviews-list dt, #container .reviews-list dd {
+	border: 1px solid #e5e5e5;
+	margin-bottom: 2px;
+	padding: 10px 20px;
+}
+
+#container .reviews-list dt {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;	
+	border-radius: 4px;
+	color: #66a2bb;
+	cursor: pointer;
+}
+
+#container .reviews-list dd {
+	background: #fff;
+	display: none;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;	
+	border-radius: 0 0 4px 4px;
+	margin-top: -5px;
+	line-height: 140%;
+}
+
+#container .review-form-block {
+	padding-bottom: 30px;
+	width: 665px;
+}
+
+#container .review-form-block .rf-title {
+	color: #66a2bb;
+	display: block;
+	font-size: 14px;
+	padding: 0 10px 10px;
+}
+
+#container .review-form-block form {
+	background: #f5f5f5;
+	border: 1px solid #eaeaea;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;	
+	border-radius: 5px;
+	padding: 9px 20px 15px 13px;
+}
+
+#right form {color: #333; font-size: 13px;}
+
+#right form input[type="text"], #right form textarea, #right form input[type="submit"] {
+	color: #6d6d6d;
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+
+#right form input[type="text"] {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;	
+	border-radius: 3px;
+}
+
+#right form textarea {
+	background: #fff url(../img/textarea-bg.gif) repeat-x;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;	
+	border-radius: 4px;
+	resize: none;
+}
+
+#right form input[type="submit"] {
+	background: #fff url(../img/submit-bg.png) repeat-x left bottom;
+	cursor: pointer;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;	
+	border-radius: 5px;
+	padding: 3px 10px;
+}
+
+.review-form-block form .rf-name-fieldset {
+	overflow: hidden;
+	padding-bottom: 39px;
+}
+
+.review-form-block form .rf-name-fieldset label {
+	display: block;
+	float: left;
+	padding-right: 30px;
+	padding-top: 5px;
+}
+
+.review-form-block form .rf-name-fieldset .rf-name {
+	float: left;
+	width: 200px;
+}
+
+.review-form-block form .rf-name-fieldset .rf-email {
+	float: right;
+	width: 265px;
+}
+
+
+.review-form-block form textarea {
+	display: block;
+	height: 65px;
+	margin-bottom: 20px;
+	width: 618px;
 }
 
 .footer-space {clear: both; height: 315px; width: 940px; margin: 0 auto}

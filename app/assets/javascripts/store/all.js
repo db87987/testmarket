@@ -18,6 +18,7 @@
 
 $(document).ready(function(){
 	
+	// Аккордеон левого меню каталога
 	$("#catalogue-menu > ul > li > a").click(function(){
 		$(this).toggleClass("active").siblings("ul").slideToggle().
 		parent().siblings("li").find("a:first").removeClass("active").siblings("ul").slideUp();
@@ -26,6 +27,7 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	// Слайдер на главной
 	$("#slider-idx ul").carouFredSel({
 		auto 			: {pauseDuration: 5000}, 
    	pagination  : "#s-pagination"
@@ -90,7 +92,22 @@ $(document).ready(function(){
 		return false;
 	});
 	
-
+	// Клик по табам фото и видео
+	$(".photovideo-tabs li a").click(function(){
+		var thisHref = $(this).attr("href");
+		
+		$(this).parent().addClass("active").siblings("li").removeClass("active");
+		$(thisHref).show().siblings("ul").hide();
+		
+		return false;
+	});
+	
+	// Отзывы
+	$(".reviews-list dt").click(function(){
+		$(this).next("dd").slideToggle().siblings("dd").slideUp();
+		
+		return false;
+	});
 
 	
  });
