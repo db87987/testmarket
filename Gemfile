@@ -55,6 +55,7 @@ gem 'spree_essential_menus', :git => 'git://github.com/pirj/spree_essential_menu
 # тут можно использовать и оригинал от  matfiz/spree_essential_menus, мои пуллреквесты смерджили
 
 gem 'spree_slider', :git => 'git://github.com/priviterag/spree_slider.git'
+gem 'spree_essentials', '~> 0.5.0'
 gem 'spree_essential_blog', :git => 'git://github.com/citrus/spree_essential_blog.git'
 gem 'spree_essential_cms', :git => 'git://github.com/citrus/spree_essential_cms.git'
 

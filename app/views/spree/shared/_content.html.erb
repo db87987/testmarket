@@ -1,0 +1,48 @@
+<% content ||= @content %>
+<% image_size ||= :medium %>
+<% html ||= false %>
+<% content_counter ||= 0 %>
+
+<% unless content.nil? %>
+  
+  
+    
+    	<div id="middle">
+			<div id="left">
+				<ul class="l-menu">
+					<% unless @pages.blank? %>
+					  <% @pages.each do |page| %>
+					    <% next if page.root? || !page.visible? %>
+						<%= if page.matches?(request.path)
+							content_tag(:li, content_tag(:span, page.nav_title))
+							else
+							content_tag(:li, link_to(page.nav_title, page.path))
+							end %>
+					  <% end %>
+					<% end %>
+				</ul>
+			</div>
+			<div id="right">
+				<div class="content">
+					<% unless content.hide_title? %>
+				        <h1><%= content.title %></h1>
+				      <% end %>
+				
+					<% if content.has_image? %>
+				        <%= image_tag content.attachment.url(image_size), :alt => content.title %>
+					<br/>
+					<br/>
+				    <% end %>
+
+					<%= content.rendered_body %>
+					
+				</div>
+				
+				<div class="payments"><img src="img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
+			</div>
+		</div>
+		<div class="copyright">Allmusicmarket © 2012. Все права защищены, блять. Пошли все нахуй</div>
+		<div class="footer-space"></div>
+	
+
+<% end %>

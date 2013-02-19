@@ -339,6 +339,7 @@ DEPENDENCIES
   spree_essential_blog!
   spree_essential_cms!
   spree_essential_menus!
+  spree_essentials (~> 0.5.0)
   spree_i18n!
   spree_slider!
   synergy!
