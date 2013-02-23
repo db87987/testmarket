@@ -31,16 +31,29 @@
 							<p><%= product_description(@product) rescue t(:product_has_no_description) %></p>
 						</div>
 						
+						<%= form_for :order, :url => populate_orders_url do |f| %>
+						
+						<% if @product.price %>
+						
 						<div class="buy-block">
-							<a href="#" class="bb-button">Купить</a>
+							<%= button_tag :class => 'bb-button', :id => 'add-to-cart-button', :type => :submit do %>
+				              <%= t(:add_to_cart) %>
+				            <% end %>
 							<div class="bb-quantity">
-								<input type="text" value="1" />
-								<a href="#" title="Больше" class="plus"></a>
-								<a href="#" title="Меньше" class="minus"></a>
+								<% if @product.has_stock? || Spree::Config[:allow_backorders] %>      
+						            <%= number_field_tag (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"),
+						              1, :class => 'title', :in => 1..@product.on_hand %>
 							</div>
-							
 							<span class="bb-price"><%= number_to_currency @product.price %></span>
 						</div>
+					          <% else %>
+					            <%= content_tag('strong', t(:out_of_stock)) %>
+					          <% end %>
+					    <% end %>    
+						<% end %>
+						
+						
+						
 					</div>
 				</div>
 				

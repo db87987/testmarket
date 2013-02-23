@@ -28,7 +28,7 @@
 						<span class="cl-title"><%= link_to truncate(product.name, :length => 50), product, :itemprop => "name", :title => product.name %></span>
 						<p><%= truncate(product_description(product), :length => 50) rescue t(:product_has_no_description) %></p>
 						<span class="cl-price"><%= number_to_currency product.price %></span>
-						<a href="#" class="cl-buy">купить</a>
+						<%= link_to "купить", product, :class => "cl-buy" %>
 					</li>
 					<% end %>
 				<% end %>

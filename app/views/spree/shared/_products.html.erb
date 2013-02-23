@@ -27,7 +27,7 @@
 						<%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url', :class => 'cl-img' %>
 						<span class="cl-title"><%= link_to truncate(product.name, :length => 50), product, :itemprop => "name", :title => product.name %></span>
 						<span class="cl-price"><%= number_to_currency product.price %></span>
-						<a href="#" class="cl-buy">купить</a>
+						<%= link_to "купить", product, :class => "cl-buy" %>
 					</li>
 					<% end %>
 				<% end %>
