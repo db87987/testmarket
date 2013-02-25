@@ -19,9 +19,7 @@
 		
 		<tr class="order-button">
 			<td colspan="2"></td>
-			<td colspan="2"><%= button_tag :id => 'update-button' do %>
-	            <%= t(:update) %>
-	          <% end %></td>
+			<td colspan="2"><%= button_tag "Пересчитать", :id => 'update-button' %></td>
 			<td colspan="2"><%= link_to "перейти к оформлению", checkout_path, :id => 'checkout-link' %></td>
 		</tr>
 	</table>
