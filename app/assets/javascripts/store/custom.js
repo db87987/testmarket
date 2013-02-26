@@ -9,6 +9,15 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	// Первый шаг оформления заказа
+	$("#ch-choice-1-step input").change(function(){
+		var formLink = $(this).attr("data-link");
+		
+		$(formLink).show().siblings("form").hide();
+		
+		return false;
+	});
+	
 	// Слайдер на главной
 	$("#slider-idx ul").carouFredSel({
 		auto 			: {pauseDuration: 5000}, 
@@ -41,6 +50,20 @@ $(document).ready(function(){
 		var oldImg = $(this).attr('src');
 		$(this).attr('src', newImg);
 		$(this).attr('rel', oldImg);
+	});
+
+	// переключение изображениий в карточке товара
+	$(".cs-sm-images li a").click(function(){
+		
+		var linkRel = $(this).attr("rel");
+		var linkHref = $(this).attr("href");
+		
+		$(".big-img #" + linkRel).show().siblings("img").hide();
+		$("#link_" + linkRel).show().siblings("a").hide();
+		
+		$(this).parent().addClass("active").siblings("li").removeClass("active");
+		
+		return false;
 	});
 	
 	// Минус
@@ -90,4 +113,45 @@ $(document).ready(function(){
 		
 		return false;
 	});
+	
+	
+	// Закрыть фильтр
+	$(".cg-close").click(function(){
+		$(this).parent().hide();
+		
+		return false;
+	});
+	
+	// Открыть фильтр
+	$(".cf-goods-link").click(function(){
+		$(".cf-goods").show();
+		
+		return false;
+	});
+	
+	// Выбрать все в фильтре
+	$(".chack-all").click(function(){
+		$(this).parents(".cg-points").find("input[type='checkbox']").prop('checked', true);
+		
+		return false;
+	});
+	
+	// Снять выделение всех в фильтре
+	$(".de-chack-all").click(function(){
+		$(this).parents(".cg-points").find("input[type='checkbox']").prop('checked', false);
+		
+		return false;
+	});
+	
+	// Клик по табам в фильтре
+	$(".cg-tabs li a").click(function(){
+		var thisHref = $(this).attr("href");
+		
+		$(this).addClass("active").parent().siblings("li").find("a").removeClass("active");
+		$(thisHref).show().siblings(".cg-points").hide();
+		
+		return false;
+	});
+	
+	
  });

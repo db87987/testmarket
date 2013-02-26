@@ -2,11 +2,12 @@
 	<a href="/" class="logo" title="На главную">ALL MUSIC MARKET</a>
 	<div class="h-notice">онлайн-магазин<br />звукового и светового<br />оборудования</div>
 	<ul class="h-links" id="nav-bar">
-		<% if spree_current_user %>
-		  <li><%= link_to t(:logout), spree_logout_path, :method => :delete %></li>
+		<% if current_user %>
+		  <li><%= link_to t(:logout), destroy_user_session_path, :method => :delete %></li>
 		<% else %>
-		  <li><%= link_to t(:login), spree_login_path %></li>
-		  <li><%= link_to t(:signup), spree_signup_path %></li>
+		  <li><%= link_to "Вход", login_path %></li>
+		  <li><%= link_to "Регистрация", signup_path %></li>
+		  <li><%= link_to "Забыли пароль?", new_user_password_path %></li>
 		<% end %>
 	</ul>
 	<% unless current_spree_page?(cart_path) %>
