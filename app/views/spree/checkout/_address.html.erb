@@ -13,28 +13,29 @@
 	<div id="right" class="checkout-block">
 		<h1>Оформление покупки: шаг 2 из 3</h1>
 		<span class="checkout-back"><a href="checkout-1.html">назад</a></span>
+		<span style="color: red">
+		<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
+		</span>
+		<br/>
 		<span class="cb-title">представьтесь:</span>
 		
-		<form name="auth-form" method="POST" id="auth-form" action="#" class="cb-form cb-user-data">
-			<input name="af-name" type="text" value="Ваше имя" onfocus="if (value=='Ваше имя') value='';" onblur="if (value=='') value='Ваше имя';">
-			<input name="af-surname" type="text" value="Ваша фамилия" onfocus="if (value=='Ваша фамилия') value='';" onblur="if (value=='') value='Ваша фамилия';">
-			<input name="af-city" type="text" value="Город" onfocus="if (value=='Город') value='';" onblur="if (value=='') value='Город';">
-			<input name="af-address" type="text" value="Адрес доставки" onfocus="if (value=='Адрес доставки') value='';" onblur="if (value=='') value='Адрес доставки';">
-			<input name="af-phone" type="text" value="Контактный телефон" onfocus="if (value=='Контактный телефон') value='';" onblur="if (value=='') value='Контактный телефон';">
+		<%= form.fields_for :bill_address, :html => {:id => "auth-form", :class => "cb-form cb-user-data"} do |bill_form| %>
+			<input id="order_bill_address_attributes_firstname" name="order[bill_address_attributes][firstname]" size="30" type="text" placeholder="Ваше имя" /><br/>
+			<input id="order_bill_address_attributes_lastname" name="order[bill_address_attributes][lastname]" size="30" type="text" placeholder="Ваша фамилия" /><br/>
+			<input id="order_bill_address_attributes_city" name="order[bill_address_attributes][city]" size="30" type="text" placeholder="Город" /><br/>
+			<input id="order_bill_address_attributes_address1" name="order[bill_address_attributes][address1]" size="30" type="text" placeholder="Адрес доставки" /><br/>
+			<input id="order_bill_address_attributes_phone" name="order[bill_address_attributes][phone]" size="30" type="text" placeholder="Контактый телефон" />
+			
+			<%= check_box_tag 'order[use_billing]', '1', (!(@order.bill_address.empty? && @order.ship_address.empty?) && @order.bill_address.same_as?(@order.ship_address)), :checked => true, :style => 'visibility: hidden' %>
 		
 			<span class="cb-title cb-title-mid">Способ оплаты:</span>
 		
 			<ul class="choice-list">
-				<li><input type="radio" name="pay-type" id="pt-cash" checked><label for="pt-cash">Налиными при получении</label></li>
-				<li><input type="radio" name="pay-type" id="pt-card"><label for="pt-card">Банковской картой</label></li>
-				<li><input type="radio" name="pay-type" id="pt-yd"><label for="pt-yd">Яндекс-деньгами</label></li>
-				<li><input type="radio" name="pay-type" id="pt-bill" ><label for="pt-bill">Безналичный расчет (юридическое лицо)</label></li>
+				<p>На данный момент возможно только оплата наличными при получении,<br/> скоро появятся и другие способы оплаты.
 			</ul>
-
-			<a href="checkout-3.html" class="cf-button">продолжить</a>
-
-		</form>
+			<%= submit_tag "продолжить", :class => 'cf-button' %>
+			<% end %>
 		
-		<div class="payments"><img src="img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
+		<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
 	</div>
 </div>
