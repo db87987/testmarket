@@ -4,14 +4,15 @@
 			<li><a href="basket.html">корзина</a></li>
 		</ul>
 		
-		<ul class="basket-menu"> 
-			<li class="dark-color bm-first">ваш аккаунт</li>
-			<li class="two-colors">оплата</li>
-			<li class="one-light-color">получение</li>
+		<ul class="basket-menu">
+			<li class="two-colors bm-first">Адрес</li>
+			<li class="one-light-color">Доставка</li>
+			<li>Оплата</li>
 		</ul>
 	</div>
+	
 	<div id="right" class="checkout-block">
-		<h1>Оформление покупки: шаг 2 из 3</h1>
+		<h1>оформление покупки: шаг 1 из 3</h1>
 		<span class="checkout-back"><a href="checkout-1.html">назад</a></span>
 		<span style="color: red">
 		<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
@@ -26,16 +27,16 @@
 			<input id="order_bill_address_attributes_address1" name="order[bill_address_attributes][address1]" size="30" type="text" placeholder="Адрес доставки" /><br/>
 			<input id="order_bill_address_attributes_phone" name="order[bill_address_attributes][phone]" size="30" type="text" placeholder="Контактый телефон" />
 			
+			<select class="required" id="order_bill_address_attributes_country_id" name="order[bill_address_attributes][country_id]" style="display: none">
+			<option value="168" selected="selected">Russian Federation</option>
+			</select>
+			
 			<%= check_box_tag 'order[use_billing]', '1', (!(@order.bill_address.empty? && @order.ship_address.empty?) && @order.bill_address.same_as?(@order.ship_address)), :checked => true, :style => 'visibility: hidden' %>
-		
-			<span class="cb-title cb-title-mid">Способ оплаты:</span>
-		
-			<ul class="choice-list">
-				<p>На данный момент возможно только оплата наличными при получении,<br/> скоро появятся и другие способы оплаты.
-			</ul>
+			<br/>
+			<br/>
 			<%= submit_tag "продолжить", :class => 'cf-button' %>
 			<% end %>
 		
 		<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
 	</div>
-</div>
+	</div>
