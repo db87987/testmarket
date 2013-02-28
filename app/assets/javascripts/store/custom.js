@@ -29,6 +29,10 @@ $(document).ready(function(){
 		$(this).addClass('checked').parent().siblings('li').find('label').removeClass('checked');
 	});
 	
+	$("#sbtn").click(function(){
+		$(this).closest('form').submit()
+	});
+	
 	// карусель
 	// элементов в карусели
 	var jsElNum = $('.mm-carousel li').length;

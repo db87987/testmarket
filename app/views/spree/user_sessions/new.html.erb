@@ -1,0 +1,16 @@
+<div id="middle">
+	
+	<div id="left">
+	</div>
+	
+	<div id="right" class="checkout-block" style="padding-bottom: 50px">
+		<h1>Вход</h1>
+	        <%= render :partial => 'spree/shared/login' %>
+	    <%= t(:or) %> <%= link_to t(:create_a_new_account), spree.signup_path %> | <%= link_to t(:forgot_password), spree.new_user_password_path %>
+		
+	</div>
+	
+</div>
+
+<div class="copyright">Allmusicmarket © 2012. Все права защищены, блять. Пошли все нахуй</div>
+<div class="footer-space"></div>

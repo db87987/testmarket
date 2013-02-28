@@ -1,7 +1,9 @@
 module Spree
   module BaseHelper
     
-    
+    def link_to_submit(*args, &block)
+      link_to_function (block_given? ? capture(&block) : args[0]), "$(this).closest('form').submit()", args.extract_options!
+    end
 
     # Defined because Rails' current_page? helper is not working when Spree is mounted at root.
     def current_spree_page?(url)
