@@ -28,7 +28,7 @@
 
 						<span class="ce-short-title">Краткое описание</span>
 						<div class="content">
-							<p><%= product_description(@product) rescue t(:product_has_no_description) %></p>
+							<p><%= @product.short_description %></p>
 						</div>
 						
 						<%= form_for :order, :url => populate_orders_url do |f| %>
@@ -51,16 +51,13 @@
 					          <% end %>
 					    <% end %>    
 						<% end %>
-						
-						
-						
 					</div>
 				</div>
 				
 				<div class="ce-tabs">
 				<ul>
-					<li class="active"><a href="descr-detail">подробное описание</a></li>
-					<li><a href="descr-media">Медиа, инструкции</a></li>
+					<li class="active"><a href="#descr-detail">подробное описание</a></li>
+					<li><a href="#descr-media">Медиа, инструкции</a></li>
 				</ul>
 				
 					<div class="ce-social-share">
@@ -69,16 +66,25 @@
 					</div>
 				</div>
 				
-				
-				<% unless @product_properties.empty? %>
 				<div class="descr-block">
+					
+					
+					
 					<div class="content" id="descr-detail">
+						<% if @product_properties.empty? %>
+						<p>Подробное описание для данного товара отсутствует</p>
+						<% else %>
 						<% for product_property in @product_properties %>
 						<p><%= product_property.property.presentation %>: <%= product_property.value %></p>
 						<% end %>
+						<% end %>
+					</div>
+					
+					
+					<div class="content" id="descr-media">
+						<p>Инструкции для данного товара отсутствует</p>
 					</div>
 				</div>
-				<% end %>
 				
 				<span class="recom-title">с этим товаром также смотрят:</span>
 				<ul class="catalogue-list cl-inside">

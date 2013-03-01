@@ -858,6 +858,8 @@ body {background: #1c1c1c url(/img/bg.gif);}
 	padding: 0 30px;
 	text-decoration: none;
 	text-transform: uppercase;
+	border: none;
+	cursor: pointer;
 }
 
 #middle .catalogue-element .ce-text .buy-block .bb-button:hover {background: #c10100;}

@@ -9,6 +9,16 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	// Клик по табам с описаниями в карточке товара
+	$(".ce-tabs ul li a").click(function(){
+		var thisHref = $(this).attr("href");
+		
+		$(this).parent().addClass("active").siblings("li").removeClass("active");
+		$(thisHref).show().siblings("div").hide();
+		
+		return false;
+	});
+	
 	// Первый шаг оформления заказа
 	$("#ch-choice-1-step input").change(function(){
 		var formLink = $(this).attr("data-link");
@@ -29,6 +39,7 @@ $(document).ready(function(){
 		$(this).addClass('checked').parent().siblings('li').find('label').removeClass('checked');
 	});
 	
+	// submit form with link
 	$("#sbtn").click(function(){
 		$(this).closest('form').submit()
 	});
@@ -91,15 +102,7 @@ $(document).ready(function(){
 		return false;
 	});
 	
-	// Клик по табам с описаниями в карточке товара
-	$(".ce-tabs ul li a").click(function(){
-		var thisHref = $(this).attr("href");
-		
-		$(this).parent().addClass("active").siblings("li").removeClass("active");
-		$("#" + thisHref).show().siblings("div").hide();
-		
-		return false;
-	});
+
 	
 	// Клик по табам фото и видео
 	$(".photovideo-tabs li a").click(function(){
