@@ -2,10 +2,24 @@
 <% content_for :head do %>
   <%= javascript_include_tag states_url(:format => :js) %>
 <% end %> 
- <%= form_for @order, :url => update_checkout_path(@order.state), :html => { :id => "checkout_form_#{@order.state}" } do |form| %>
+
+<div id="left">
+	<ul class="l-menu basket-link">
+		<li><a href="basket.html">корзина</a></li>
+	</ul>
+		<%= checkout_progress %>
+</div>
+
+<div id="right" class="checkout-block">
+ <%= form_for @order, :url => update_checkout_path(@order.state), :html => { :id => "checkout_form_#{@order.state}", :class => 'cb-form cb-user-data' } do |form| %>
     <%= render @order.state, :form => form %>
     <%= submit_tag nil, :id => 'post-final', :style => 'display:none;' %>
   <% end %>
+</div>
+
+<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
+</div>
+</div>
 
 <div class="copyright">Allmusicmarket © 2012. Все права защищены, блять. Пошли все нахуй</div>
 <div class="footer-space"></div>

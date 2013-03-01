@@ -118,7 +118,7 @@ html, body {min-height: 100%!important; height: 100%;}
 body {background: #1c1c1c url(/img/bg.gif);}
 
 #container #middle .cm-title, #container .middle-idx .ri-title, .catalogue-filter .cf-sort *, .catalogue-filter .cf-goods-link, .catalogue-filter .cg-tabs li *, .catalogue-filter .cf-goods .cg-title {font-family: pf_highway_sans_proregular, Arial, Tahoma, Verdana, sans-serif;}
-#container .banners-small li .bs-title, #container .banners-small li .bs-link, #middle .catalogue-element .ce-text .buy-block .bb-button, #container .basket-block .basket .order-button a, #container .checkout-block .cb-form .cf-button {font-family: pf_highway_sans_promedium, Arial, Tahoma, Verdana, sans-serif;}
+#container .banners-small li .bs-title, #container .banners-small li .bs-link, #middle .catalogue-element .ce-text .buy-block .bb-button, #container .basket-block .basket .order-button a, .order-button button, #container .checkout-block .cb-form .cf-button {font-family: pf_highway_sans_promedium, Arial, Tahoma, Verdana, sans-serif;}
 #container .slider-wrap ul li .slider-text .st-title, #container .catalogue-list li .cl-buy, #middle .catalogue-element .ce-short-title, #middle .ce-tabs ul li * {font-family: pf_highway_sans_probold, Arial, Tahoma, Verdana, sans-serif;}
 
 #header .h-notice, #m-menu ul li a, #container #middle #catalogue-menu ul li .active, #container #middle #catalogue-menu ul li .active span, #container #left .l-menu li *, #container ul.bc-cat-item *, #container .news-item .ni-back a, #container .search-title-l, #container .basket-block .basket th, #container .checkout-block .cb-title, .basket-menu li {font-family: pf_din_text_cond_promedium, Arial, Tahoma, Verdana, sans-serif;}
@@ -1355,7 +1355,7 @@ body {background: #1c1c1c url(/img/bg.gif);}
 
 #container .basket-block .basket .order-button td {border: none;}
 
-#container .basket-block .basket .order-button a, #container .checkout-block .cb-form .cf-button {
+#container .basket-block .basket .order-button a, .order-button button, #container .checkout-block .cb-form .cf-button {
 	background: #4e4e4e;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;	
@@ -1366,9 +1366,16 @@ body {background: #1c1c1c url(/img/bg.gif);}
 	line-height: 100%;
 	padding: 10px 40px;
 	text-decoration: none;
+	
 }
 
-#container .basket-block .basket .order-button a:hover, #container .checkout-block .cb-form .cf-button:hover {background: #c10100;}
+.order-button button {
+	border: none;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+#container .basket-block .basket .order-button a:hover, .order-button button:hover, #container .checkout-block .cb-form .cf-button:hover {background: #c10100;}
 
 #container .checkout-block .cb-title {
 	color: #292929;

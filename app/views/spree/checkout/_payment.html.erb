@@ -1,19 +1,11 @@
-<div id="left">
-	<ul class="l-menu basket-link">
-		<li><a href="basket.html">корзина</a></li>
-	</ul>
-	
-	<ul class="basket-menu"> 
-		<li class="dark-color bm-first">ваш аккаунт</li>
-		<li class="two-colors">оплата</li>
-		<li class="one-light-color">получение</li>
-	</ul>
-</div>
-<div id="right" class="checkout-block">
 	<h1>Оформление покупки: шаг 2 из 3</h1>
 	<span class="checkout-back"><a href="checkout-1.html">назад</a></span>
 	<span class="cb-title">Способ оплаты:</span>
 	
+	<span style="color: red">
+		 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
+		</br>
+	</span>
 
 		<ul class="choice-list">
 			<% @order.available_payment_methods.each do |method| %>
@@ -22,9 +14,3 @@
 		</ul>
 		<%= submit_tag "продолжить", :class => 'cf-button' %>
 	    <script>disableSaveOnClick();</script>
-
-
-	
-	<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
-</div>
-</div>

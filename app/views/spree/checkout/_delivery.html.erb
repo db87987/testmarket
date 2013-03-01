@@ -1,24 +1,16 @@
-<div id="left">
-	<ul class="l-menu basket-link">
-		<li><a href="basket.html">корзина</a></li>
-	</ul>
-	
-	<ul class="basket-menu"> 
-		<li class="dark-color bm-first">адрес</li>
-		<li class="two-colors">доставка</li>
-		<li class="one-light-color">оплата</li>
-	</ul>
-</div>
-<div id="right" class="checkout-block">
+
 	<h1>Оформление покупки: шаг 2 из 3</h1>
 	<span class="checkout-back"><a href="javascript:history.back()">назад</a></span>
 	<span class="cb-title">способы доставки:</span>
+	
+	<span style="color: red">
+		 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
+		</br>
+	</span>
+	
 		<ul class="choice-list">
 		<% @order.rate_hash.each do |shipping_method| %>
 			<li><%= radio_button(:order, :shipping_method_id, shipping_method[:id]) %><%= shipping_method[:name] %></li>
 		<% end %>
 		</ul>
 		<%= submit_tag "готово", :class => 'cf-button' %>
-	<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
-</div>
-</div>

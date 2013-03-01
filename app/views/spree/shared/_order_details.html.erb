@@ -41,12 +41,12 @@
 
 <hr />
 
-<table class="index columns alpha omega sixteen" data-hook="order_details">
+<table class="basket">
   <col width="15%" valign="middle" halign="center">
-  <col width="70%" valign="middle">
-  <col width="5%" valign="middle" halign="center">
-  <col width="5%" valign="middle" halign="center">
-  <col width="5%" valign="middle" halign="center">
+  <col width="50%" valign="middle">
+  <col width="10%" valign="middle" halign="center">
+  <col width="10%" valign="middle" halign="center">
+  <col width="15%" valign="middle" halign="center">
 
   <thead id="line-items" data-hook>
     <tr data-hook="order_details_line_items_headers">
@@ -69,7 +69,7 @@
         </td>
         <td data-hook="order_item_description">
           <h4><%= item.variant.product.name %></h4>
-          <%= truncate(item.variant.product.description, :length => 100, :omission => "...") %>
+          <%= if item.variant.product.description then (truncate(item.variant.product.description, :length => 100, :omission => "...")).html_safe end %>
           <%= "(" + item.variant.options_text + ")" unless item.variant.option_values.empty? %>
         </td>
         <td data-hook="order_item_price" class="price"><span><%= number_to_currency item.price %></span></td>

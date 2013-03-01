@@ -1,42 +1,24 @@
-
-	<div id="left">
-		<ul class="l-menu basket-link">
-			<li><a href="basket.html">корзина</a></li>
-		</ul>
-		
-		<ul class="basket-menu">
-			<li class="two-colors bm-first">Адрес</li>
-			<li class="one-light-color">Доставка</li>
-			<li>Оплата</li>
-		</ul>
-	</div>
-	
-	<div id="right" class="checkout-block">
 		<h1>оформление покупки: шаг 1 из 3</h1>
-		<span class="checkout-back"><a href="checkout-1.html">назад</a></span>
-		<span style="color: red">
-		<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
-		</span>
-		<br/>
+		<span class="checkout-back"><a href="javascript:history.back()">назад</a></span>
 		<span class="cb-title">представьтесь:</span>
 		
-		<%= form.fields_for :bill_address, :html => {:id => "auth-form", :class => "cb-form cb-user-data"} do |bill_form| %>
-			<input id="order_bill_address_attributes_firstname" name="order[bill_address_attributes][firstname]" size="30" type="text" placeholder="Ваше имя" /><br/>
-			<input id="order_bill_address_attributes_lastname" name="order[bill_address_attributes][lastname]" size="30" type="text" placeholder="Ваша фамилия" /><br/>
-			<input id="order_bill_address_attributes_city" name="order[bill_address_attributes][city]" size="30" type="text" placeholder="Город" /><br/>
-			<input id="order_bill_address_attributes_address1" name="order[bill_address_attributes][address1]" size="30" type="text" placeholder="Адрес доставки" /><br/>
+		<span style="color: red">
+			 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
+			</br>
+		</span>
+		
+		<%= form.fields_for :bill_address do |bill_form| %>
+			<input id="order_bill_address_attributes_firstname" name="order[bill_address_attributes][firstname]" size="30" type="text" placeholder="Ваше имя" />
+			<input id="order_bill_address_attributes_lastname" name="order[bill_address_attributes][lastname]" size="30" type="text" placeholder="Ваша фамилия" />
+			<input id="order_bill_address_attributes_city" name="order[bill_address_attributes][city]" size="30" type="text" placeholder="Город" />
+			<input id="order_bill_address_attributes_address1" name="order[bill_address_attributes][address1]" size="30" type="text" placeholder="Адрес доставки" />
 			<input id="order_bill_address_attributes_phone" name="order[bill_address_attributes][phone]" size="30" type="text" placeholder="Контактый телефон" />
 			
 			<select class="required" id="order_bill_address_attributes_country_id" name="order[bill_address_attributes][country_id]" style="display: none">
 			<option value="168" selected="selected">Russian Federation</option>
 			</select>
-			
 			<%= check_box_tag 'order[use_billing]', '1', (!(@order.bill_address.empty? && @order.ship_address.empty?) && @order.bill_address.same_as?(@order.ship_address)), :checked => true, :style => 'visibility: hidden' %>
-			<br/>
-			<br/>
 			<%= submit_tag "продолжить", :class => 'cf-button' %>
 			<% end %>
 		
-		<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
-	</div>
-	</div>
+
