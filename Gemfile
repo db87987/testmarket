@@ -30,6 +30,7 @@ gem 'tinymce-rails', '>= 3.4.7.0.1'
 gem 'tinymce-rails-langs'
 
 
+
 gem 'spree_essential_menus', :git => 'git://github.com/pirj/spree_essential_menus.git'
 gem 'spree_slider', :git => 'git://github.com/priviterag/spree_slider.git'
 gem 'spree_essentials', '~> 0.5.0'

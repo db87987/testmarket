@@ -1,0 +1,5 @@
+ru:
+  number:
+    currency:
+      format:
+        precision: 0

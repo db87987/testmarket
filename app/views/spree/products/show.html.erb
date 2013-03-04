@@ -88,37 +88,14 @@
 				
 				<span class="recom-title">с этим товаром также смотрят:</span>
 				<ul class="catalogue-list cl-inside">
-					<li class="cl-item-first">
-						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
-						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
-						
-						<span class="cl-price">530 125 руб.</span>
-						<a href="#" class="cl-buy">купить</a>
+					<% @related_products.each do |product| %>
+					<li class="<%= cycle("cl-item-first", "", "", "cl-item-four", :name => "classes") %>">
+						<%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url', :class => 'cl-img' %>
+						<span class="cl-title"><%= link_to truncate(product.name, :length => 42), product, :itemprop => "name", :title => product.name %></span>
+						<span class="cl-price"><%= number_to_currency product.price %></span>
+						<%= link_to "купить", product, :class => "cl-buy" %>
 					</li>
-					
-					<li>
-						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
-						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
-						
-						<span class="cl-price">530 125 руб.</span>
-						<a href="#" class="cl-buy">купить</a>
-					</li>
-					
-					<li>
-						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
-						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
-						
-						<span class="cl-price">530 125 руб.</span>
-						<a href="#" class="cl-buy">купить</a>
-					</li>
-					
-					<li class="cl-item-four">
-						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
-						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
-						
-						<span class="cl-price">530 125 руб.</span>
-						<a href="#" class="cl-buy">купить</a>
-					</li>
+					<% end %>
 				</ul>
 				
 				<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
