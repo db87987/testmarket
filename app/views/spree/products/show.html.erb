@@ -86,6 +86,7 @@
 					</div>
 				</div>
 				
+				<% unless @related_products.blank? %>
 				<span class="recom-title">с этим товаром также смотрят:</span>
 				<ul class="catalogue-list cl-inside">
 					<% @related_products.each do |product| %>
@@ -97,6 +98,7 @@
 					</li>
 					<% end %>
 				</ul>
+				<% end %>
 				
 				<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
 			</div>

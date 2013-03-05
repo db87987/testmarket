@@ -18,9 +18,13 @@ module Spree
       @variants = Variant.active.includes([:option_values, :images]).where(:product_id => @product.id)
       @product_properties = ProductProperty.includes(:property).where(:product_id => @product.id)
       
+      if @product.taxons.first.nil?
+        @related_products = Product.limit(4)
+      else
+        @related_products = @product.taxons.first.products.limit(4)
+      end
       
       
-      @related_products = Product.limit(4)
       
       
       

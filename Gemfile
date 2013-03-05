@@ -29,6 +29,7 @@ gem 'spree_editor', :git => 'git://github.com/spree/spree_editor.git'
 gem 'tinymce-rails', '>= 3.4.7.0.1'
 gem 'tinymce-rails-langs'
 
+gem 'russian', '~> 0.6.0'
 
 
 gem 'spree_essential_menus', :git => 'git://github.com/pirj/spree_essential_menus.git'
