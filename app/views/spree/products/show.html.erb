@@ -71,13 +71,7 @@
 					
 					
 					<div class="content" id="descr-detail">
-						<% if @product_properties.empty? %>
-						<p>Подробное описание для данного товара отсутствует</p>
-						<% else %>
-						<% for product_property in @product_properties %>
-						<p><%= product_property.property.presentation %>: <%= product_property.value %></p>
-						<% end %>
-						<% end %>
+						<%= product_description(@product) rescue t(:product_has_no_description) %>
 					</div>
 					
 					
