@@ -1,12 +1,4 @@
-#!/usr/bin/env ruby
 # coding: utf-8
-
-# add gem 'roo' to Gemfile
-
-require 'bundler'
-require File.expand_path 'config/application.rb'
-
-FILE = 'price.xls'
 
 class PriceLoader
   def initialize filename
@@ -118,5 +110,3 @@ class CSVSheet < Sheet
     CSV.parse(@sheet)
   end
 end
-
-PriceLoader.new(FILE).load_price
