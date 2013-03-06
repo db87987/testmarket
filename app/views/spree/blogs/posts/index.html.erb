@@ -1,9 +1,16 @@
 	<div id="middle">
 		<div id="left">
 			<ul class="l-menu">
-				<li><span>новости компании</span></li>
-				<li><a href="#">статьи</a></li>
-				<li><a href="reviews.html">отзывы</a></li>
+				<% unless @pages.blank? %>
+				  <% @pages.each do |page| %>
+				    <% next if page.root? || !page.visible? %>
+					<%= if page.matches?(request.path)
+						content_tag(:li, content_tag(:span, page.nav_title))
+						else
+						content_tag(:li, link_to(page.nav_title, page.path))
+						end %>
+				  <% end %>
+				<% end %>
 			</ul>
 		</div>
 		<div id="right" class="news-list">
