@@ -1,20 +1,28 @@
+#!/usr/bin/env ruby
 # coding: utf-8
-require 'roo'
+
+# add gem 'roo' to Gemfile
+
+require 'bundler'
+require File.expand_path 'config/application.rb'
+
 FILE = 'price.xls'
 
 class PriceLoader
   def initialize filename
     @filename = filename
+    @errors = Set.new
   end
 
   def load_price
-    skip = 3
+    skip = 1
     sheet_from_file.rows.map do |row|
       puts skip
       puts row[1]
       process_row row unless skip > 0
       skip = skip - 1
     end
+    @errors
   end
 
   def sheet_from_file
@@ -31,38 +39,49 @@ class PriceLoader
   end
 
   def process_row row
-    sku = row[0]
-    name = row[1].force_encoding Encoding::UTF_8
-    price = row[2]
-    quantity = row[3]
-    next_taxon name if sku.blank?
-    load_product sku, name, price, quantity unless sku.blank?
+    sku = row[1]
+    name = row[2].force_encoding Encoding::UTF_8
+    short_desc = row[3].force_encoding Encoding::UTF_8
+    desc = row[4].force_encoding Encoding::UTF_8
+    price = row[5]
+    quantity = row[6]
+    brand = row[7].force_encoding Encoding::UTF_8
+    taxon1 = row[8].force_encoding Encoding::UTF_8
+    taxon2 = row[9].force_encoding Encoding::UTF_8
+    instruction = row[10]
+    load_product sku, name, short_desc, desc, price, quantity, brand, taxon1, taxon2, instruction
   end
 
-  def load_product sku, name, price, quantity
+  def load_product sku, name, short_desc, desc, price, quantity, brand, taxon1, taxon2, instruction
     puts "loading prod: #{name}"
     variant = Spree::Variant.where(sku: sku).first
     product = variant.nil? ? Spree::Product.new(sku: sku) : variant.product
+    
     product.name = name
-    product.taxons << @current_taxon unless product.taxons.include?(@current_taxon)
+    product.permalink = sku
+    product.meta_description = short_desc
+    product.description = desc
     product.price = price.to_f
     product.available_on ||= Time.now
-    product.count_on_hand = fix_quantity(quantity)
+    product.count_on_hand = quantity
+
+    add_taxon brand unless brand.blank?
+    add_taxon taxon1 unless taxon1.blank?
+    add_taxon taxon2 unless taxon2.blank?
+
+    if product.images.blank?
+      inst = Spree::Image.new
+      inst.attachment_file_name = instruction
+      product.images << inst
+    end
+
     product.save
   end
 
-  def fix_quantity quantity
-    return 6 if quantity == '> 5'
-    [0, quantity.to_i].max
-  end
-
-  def next_taxon name
-    puts "next taxon: #{name}"
-    @current_taxon = Spree::Taxon.where(taxonomy_id: category_taxonomy.id, name: name).first_or_create
-  end
-
-  def category_taxonomy
-    @category ||= Spree::Taxonomy.where(name: 'Категории').first_or_create
+  def add_taxon product, taxon_name
+    taxon = Spree::Taxon.where(name: taxon_name).first
+    @errors << "Не найден таксон #{taxon_name}" if taxon.nil?
+    product.taxons << taxon unless taxon.nil? or product.taxons.include?(taxon)
   end
 end
 

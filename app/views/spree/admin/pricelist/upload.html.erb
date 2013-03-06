@@ -1,0 +1,9 @@
+<%= form_tag admin_pricelist_load_path, :html => { :multipart => true } do |f| %>
+<fieldset>
+  <center>
+  <%= f.label t(:upload_pricelist) %>
+  <%= f.file_field :pricelist %>
+  <%= f.submit %>
+  </center>
+</fieldset>
+<% end %>
