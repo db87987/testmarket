@@ -66,6 +66,7 @@ $(document).ready(function(){
 		$(this).attr('src', newImg);
 		$(this).attr('rel', oldImg);
 	});
+	
 
 	// переключение изображениий в карточке товара
 	$(".cs-sm-images li a").click(function(){
@@ -102,7 +103,6 @@ $(document).ready(function(){
 		return false;
 	});
 	
-
 	
 	// Клик по табам фото и видео
 	$(".photovideo-tabs li a").click(function(){
