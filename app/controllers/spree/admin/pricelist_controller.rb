@@ -1,7 +1,7 @@
 module Spree
   module Admin
     class PricelistController < Spree::Admin::BaseController
-      def upload
+      def show
       end
 
       def load

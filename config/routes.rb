@@ -11,7 +11,7 @@ Testmarket::Application.routes.draw do
 
   namespace :admin do
     resources :pricelist do
-      get :upload
+      get :show
       post :load
     end
   end
