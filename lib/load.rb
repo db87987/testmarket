@@ -1,8 +1,10 @@
 # coding: utf-8
 
+require 'roo'
+
 class PriceLoader
-  def initialize filename
-    @filename = filename
+  def initialize file, filename
+    @file, @filename = file, filename
     @errors = Set.new
   end
 
@@ -18,14 +20,14 @@ class PriceLoader
   end
 
   def sheet_from_file
-    extension = @filename.split('.').last
-    if extension == 'xlsx'
-      XLSheet.new Excelx.new @filename
-    elsif extension == 'xls'
-      XLSheet.new Excel.new @filename
-    elsif extension == 'csv'
-      CSVSheet.new File.new(@filename).read #.force_encoding Encoding::UTF_8
-    else
+      extension = @filename.original_filename.split('.').last
+      if extension == 'xlsx'
+        XLSheet.new Excelx.new @file.path
+      elsif extension == 'xls'
+        XLSheet.new Excel.new @file.path
+      elsif extension == 'csv'
+        CSVSheet.new File.new(@file.path).read #.force_encoding Encoding::UTF_8
+      else
       raise "Unknown file type"
     end
   end
