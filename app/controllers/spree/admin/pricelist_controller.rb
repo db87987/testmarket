@@ -1,6 +1,4 @@
-# coding: utf-8
-
-require 'load' 
+require File.join Rails.root, 'lib/load.rb'
 
 module Spree
   module Admin
@@ -10,7 +8,7 @@ module Spree
       end
 
       def load
-        @errors = PriceLoader.new(params[:pricelist]).load_price
+        @errors = PriceLoader.new(params[:pricelist].tempfile, params[:pricelist]).load_price
       end      
     end
   end
