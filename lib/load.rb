@@ -9,42 +9,39 @@ class PriceLoader
   end
 
   def load_price
-    skip = 2
-    sheet_from_file.rows.map do |row|
-      puts skip
-      puts row[1]
-      process_row row unless skip > 0
-      skip = skip - 1
+    sheet = sheet_from_file
+    (2..sheet.last_row).map do |row|
+      process_row sheet, row
     end
     @errors
   end
 
   def sheet_from_file
-      extension = @filename.original_filename.split('.').last
-      if extension == 'xlsx'
-        File.rename @file.path, "/tmp/price.xlsx"
-        XLSheet.new Excelx.new "/tmp/price.xlsx"
-      elsif extension == 'xls'
-        File.rename @file.path, "/tmp/price.xls"
-        XLSheet.new Excel.new "/tmp/price.xls"
-      elsif extension == 'csv'
-        CSVSheet.new File.new(@file.path).read #.force_encoding Encoding::UTF_8
-      else
+    extension = @filename.original_filename.split('.').last
+    if extension == 'xlsx'
+      File.rename @file.path, "/tmp/price.xlsx"
+      Excelx.new "/tmp/price.xlsx"
+    elsif extension == 'xls'
+      File.rename @file.path, "/tmp/price.xls"
+      Excel.new "/tmp/price.xls"
+    else
       raise "Unknown file type"
     end
   end
 
-  def process_row row
-    sku = row[1]
-    name = row[2].force_encoding Encoding::UTF_8
-    short_desc = row[3].force_encoding Encoding::UTF_8
-    desc = row[4].force_encoding Encoding::UTF_8
-    price = row[5]
-    quantity = row[6]
-    brand = row[7].force_encoding Encoding::UTF_8
-    taxon1 = row[8].force_encoding Encoding::UTF_8
-    taxon2 = row[9].force_encoding Encoding::UTF_8
-    instruction = row[10]
+  def process_row sheet, row
+    sku = sheet.cell row, 2
+    name = sheet.cell(row, 3)
+    puts "LOADING #{name}"
+    short_desc = sheet.cell(row, 4)
+    desc = sheet.cell(row, 5)
+    price = sheet.cell(row, 6)
+    quantity = sheet.cell(row, 7)
+    brand = sheet.cell(row, 8)
+    taxon1 = sheet.cell(row, 9)
+    taxon2 = sheet.cell(row, 10)
+    instruction = sheet.cell(row, 11)
+    name, short_desc, desc, brand, taxon1, taxon2, instruction = [name, short_desc, desc, brand, taxon1, taxon2, instruction].map {|v| v.force_encoding Encoding::UTF_8 unless v.nil? }
     load_product sku, name, short_desc, desc, price, quantity, brand, taxon1, taxon2, instruction
   end
 
@@ -61,6 +58,8 @@ class PriceLoader
     product.available_on ||= Time.now
     product.count_on_hand = quantity
 
+    product.save
+
     add_taxon product, brand unless brand.blank?
     add_taxon product, taxon1 unless taxon1.blank?
     add_taxon product, taxon2 unless taxon2.blank?
@@ -70,47 +69,11 @@ class PriceLoader
       inst.attachment_file_name = instruction
       product.images << inst
     end
-
-    product.save
   end
 
   def add_taxon product, taxon_name
     taxon = Spree::Taxon.where(name: taxon_name).first
     @errors << "Не найден таксон #{taxon_name}" if taxon.nil?
     product.taxons << taxon unless taxon.nil? or product.taxons.include?(taxon)
-  end
-end
-
-class Sheet
-  def initialize sheet
-    @sheet = sheet
-  end
-end
-
-class XLSheet < Sheet
-  COLUMNS = ('A'..'Z').to_a.freeze
-
-  def rows
-    Enumerator.new do |row|
-      @sheet.last_row.times do |row_number|
-        row << Row.new(@sheet, row_number)
-      end
-    end
-  end
-
-  class Row
-    def initialize sheet, row_number
-      @sheet, @row_number = sheet, row_number
-    end
-
-    def [] column_number
-      @sheet.cell @row_number, COLUMNS[column_number]
-    end
-  end
-end
-
-class CSVSheet < Sheet
-  def rows
-    CSV.parse(@sheet)
   end
 end
