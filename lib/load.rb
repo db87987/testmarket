@@ -70,6 +70,7 @@ class PriceLoader
     end
 
     product.save
+    end
   end
 
   def add_taxon product, taxon_name
