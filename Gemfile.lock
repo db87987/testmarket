@@ -384,6 +384,7 @@ DEPENDENCIES
   rails (= 3.2.12)
   rails-i18n
   roo (= 1.10.1)
+  russian (~> 0.6.0)
   sass-rails (~> 3.2.3)
   slim
   spree (= 1.1.3)

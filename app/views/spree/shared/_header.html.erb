@@ -1,10 +1,14 @@
 <div id="header">
 	<a href="/" class="logo" title="На главную">ALL MUSIC MARKET</a>
 	<div class="h-notice">онлайн-магазин<br />звукового и светового<br />оборудования</div>
-	<ul class="h-links">
-		<li><a href="#">Вход</a></li>
-		<li><a href="#">Регистрация</a></li>
-		<li><a href="#">Забыли пароль?</a></li>
+	<ul class="h-links" id="nav-bar">
+		<% if current_user %>
+		  <li><%= link_to t(:logout), destroy_user_session_path, :method => :delete %></li>
+		<% else %>
+		  <li><%= link_to "Вход", login_path %></li>
+		  <li><%= link_to "Регистрация", signup_path %></li>
+		  <li><%= link_to "Забыли пароль?", new_user_password_path %></li>
+		<% end %>
 	</ul>
 	<% unless current_spree_page?(cart_path) %>
 	<div class="h-cart">
@@ -12,21 +16,21 @@
 	</div>
 	<% end %>
 
-	<div class="h-phone"><span>812</span> 749-3897</div>
+	<div class="h-phone"><span>812</span> 984-5250</div>
 
 	<a href="#" class="h-map-link">контакты и карта проезда</a>
 </div>
 
 <div id="m-menu">
 	<ul>
-		<li><a href="/about">о компании</a></li>
-		<li><%= link_to "каталог товаров", products_path %></li>
-		<li><a href="/howtobuy">как купить</a></li>
-		<li><a href="/delivery">доставка</a></li>
-		<li><a href="/vrazrabotke">фото и видео</a></li>
-		<li><a href="/vrazrabotke">отзывы</a></li>
-		<li><a href="/vrazrabotke">новости и статьи</a></li>
-		<li><a href="/vrazrabotke">сервис</a></li>
-		<li class="online-c"><a href="#">консультант<br />online</a></li>
+		<li><%= nav_link "о компании", '/about' %></li>
+		<li><%= nav_link "каталог товаров", products_path %></li>
+		<li><%= nav_link "как купить", "/howtobuy" %></li>
+		<li><%= nav_link "доставка", "/delivery" %></li>
+		<li><%= link_to "фото и видео", "/vrazrabotke" %></li>
+		<li><%= link_to "отзывы", "/vrazrabotke" %></li>
+		<li><%= nav_link "новости и статьи", "/news" %></li>
+		<li><%= nav_link "сервис", "/service" %></li>
+		<li class="online-c"><a href="#" onClick="javascript: jivo_api.open();" id='test_but'>консультант<br />online</a></li>
 	</ul>
 </div>

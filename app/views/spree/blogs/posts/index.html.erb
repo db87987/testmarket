@@ -1,0 +1,89 @@
+	<div id="middle">
+		<div id="left">
+			<ul class="l-menu">
+				<% unless @pages.blank? %>
+				  <% @pages.each do |page| %>
+				    <% next if page.root? || !page.visible? %>
+					<%= if page.matches?(request.path)
+						content_tag(:li, content_tag(:span, page.nav_title))
+						else
+						content_tag(:li, link_to(page.nav_title, page.path))
+						end %>
+				  <% end %>
+				<% end %>
+			</ul>
+		</div>
+		<div id="right" class="news-list">
+			<h1>Новости компании</h1>
+			
+			<dl>
+				<dt>
+					<a href="#">Всему тон задает новый INVOTONE!</a>
+					<span>06 декабря 2012</span>
+				</dt>
+				<dd>
+					<p>Сообщаем о последних кардинальных изменениях в ассортименте бренда INVOTONE.</p>
+					<a href="#">Читать далее</a>
+				</dd>
+				
+				<dt>
+					<a href="#">Всему тон задает новый INVOTONE!</a>
+					<span>06 декабря 2012</span>
+				</dt>
+				<dd>
+					<p>Сообщаем о последних кардинальных изменениях в ассортименте бренда INVOTONE.</p>
+					<a href="#">Читать далее</a>
+				</dd>
+				
+				<dt>
+					<a href="#">Всему тон задает новый INVOTONE!</a>
+					<span>06 декабря 2012</span>
+				</dt>
+				<dd>
+					<p>Сообщаем о последних кардинальных изменениях в ассортименте бренда INVOTONE.</p>
+					<a href="#">Читать далее</a>
+				</dd>
+				
+				<dt>
+					<a href="#">Всему тон задает новый INVOTONE!</a>
+					<span>06 декабря 2012</span>
+				</dt>
+				<dd>
+					<p>Сообщаем о последних кардинальных изменениях в ассортименте бренда INVOTONE.</p>
+					<a href="#">Читать далее</a>
+				</dd>
+				
+				<dt>
+					<a href="#">Всему тон задает новый INVOTONE!</a>
+					<span>06 декабря 2012</span>
+				</dt>
+				<dd>
+					<p>Сообщаем о последних кардинальных изменениях в ассортименте бренда INVOTONE.</p>
+					<a href="#">Читать далее</a>
+				</dd>
+				
+				<dt>
+					<a href="#">Всему тон задает новый INVOTONE!</a>
+					<span>06 декабря 2012</span>
+				</dt>
+				<dd class="last">
+					<p>Сообщаем о последних кардинальных изменениях в ассортименте бренда INVOTONE.</p>
+					<a href="#">Читать далее</a>
+				</dd>
+			</dl>
+			
+			<ul class="paging">
+				<li>Страницы:</li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><span>3</span></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">6</a></li>
+				<li><a href="#">→</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="copyright">Allmusicmarket © 2012. Все права защищены, блять. Пошли все нахуй</div>
+	<div class="footer-space"></div>
+</div>

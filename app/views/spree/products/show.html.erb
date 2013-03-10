@@ -28,7 +28,7 @@
 
 						<span class="ce-short-title">Краткое описание</span>
 						<div class="content">
-							<p><%= product_description(@product) rescue t(:product_has_no_description) %></p>
+							<p><%= @product.short_description %></p>
 						</div>
 						
 						<%= form_for :order, :url => populate_orders_url do |f| %>
@@ -51,16 +51,13 @@
 					          <% end %>
 					    <% end %>    
 						<% end %>
-						
-						
-						
 					</div>
 				</div>
 				
 				<div class="ce-tabs">
 				<ul>
-					<li class="active"><a href="descr-detail">подробное описание</a></li>
-					<li><a href="descr-media">Медиа, инструкции</a></li>
+					<li class="active"><a href="#descr-detail">подробное описание</a></li>
+					<li><a href="#descr-media">Медиа, инструкции</a></li>
 				</ul>
 				
 					<div class="ce-social-share">
@@ -69,51 +66,33 @@
 					</div>
 				</div>
 				
-				
-				<% unless @product_properties.empty? %>
 				<div class="descr-block">
+					
+					
+					
 					<div class="content" id="descr-detail">
-						<% for product_property in @product_properties %>
-						<p><%= product_property.property.presentation %>: <%= product_property.value %></p>
-						<% end %>
+						<%= product_description(@product) rescue t(:product_has_no_description) %>
+					</div>
+					
+					
+					<div class="content" id="descr-media">
+						<p>Инструкции для данного товара отсутствует</p>
 					</div>
 				</div>
-				<% end %>
 				
+				<% unless @related_products.blank? %>
 				<span class="recom-title">с этим товаром также смотрят:</span>
 				<ul class="catalogue-list cl-inside">
-					<li class="cl-item-first">
-						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
-						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
-						
-						<span class="cl-price">530 125 руб.</span>
-						<a href="#" class="cl-buy">купить</a>
+					<% @related_products.each do |product| %>
+					<li class="<%= cycle("cl-item-first", "", "", "cl-item-four", :name => "classes") %>">
+						<%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url', :class => 'cl-img' %>
+						<span class="cl-title"><%= link_to truncate(product.name, :length => 42), product, :itemprop => "name", :title => product.name %></span>
+						<span class="cl-price"><%= number_to_currency product.price %></span>
+						<%= link_to "купить", product, :class => "cl-buy" %>
 					</li>
-					
-					<li>
-						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
-						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
-						
-						<span class="cl-price">530 125 руб.</span>
-						<a href="#" class="cl-buy">купить</a>
-					</li>
-					
-					<li>
-						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
-						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
-						
-						<span class="cl-price">530 125 руб.</span>
-						<a href="#" class="cl-buy">купить</a>
-					</li>
-					
-					<li class="cl-item-four">
-						<a href="#" class="cl-img" title="Колонки KV2AUDIO KX15. в две строки"><img src="/img/picture/product-1-s.jpg" width="98" height="150" alt="Колонки KV2AUDIO KX15. в две строки"></a>
-						<span class="cl-title"><a href="#">Колонки KV2AUDIO KX15. в две строки</a></span>
-						
-						<span class="cl-price">530 125 руб.</span>
-						<a href="#" class="cl-buy">купить</a>
-					</li>
+					<% end %>
 				</ul>
+				<% end %>
 				
 				<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
 			</div>

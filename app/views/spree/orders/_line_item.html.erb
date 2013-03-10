@@ -1,4 +1,4 @@
-<tr>
+<tr class="<%= cycle('', 'alt') %> line-item">
   <td class="bs-img">
     <% if variant.images.length == 0 %>
       <%= link_to small_image(variant.product), variant.product %>

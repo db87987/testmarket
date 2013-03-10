@@ -1,0 +1,10 @@
+ru:
+  time:
+    formats:
+      date_time: "%d %H:%M"
+      date_only: "%d"
+      detailed: "%a, %d %b %Y %H:%M"
+  number:
+    currency:
+      format:
+        precision: 0

@@ -1,0 +1,62 @@
+<div data-hook="admin_product_form_fields">
+  <div class="clearfix">
+    <div class="left" data-hook="admin_product_form_left">
+      <%= f.field_container :name do %>
+        <%= f.label :name, t(:name) %> <span class="required">*</span><br />
+        <%= f.text_field :name, :class => 'fullwidth title' %>
+        <%= f.error_message_on :name %>
+      <% end %>
+
+      <%= f.field_container :permalink do %>
+        <%= f.label :permalink, t(:permalink) %> <span class="required">*</span><br />
+        <%= f.text_field :permalink, :class => 'fullwidth title' %>
+        <%= f.error_message_on :permalink %>
+      <% end %>
+
+	  <%= f.field_container :short_description do %>
+        <%= f.label :short_description, "Краткое описание" %> <span class="required">*</span><br />
+        <%= f.text_field :short_description, :class => 'fullwidth title' %>
+        <%= f.error_message_on :short_description %>
+      <% end %>
+
+      <%= f.field_container :description do %>
+        <%= f.label :description, t(:description) %><br />
+        <%= f.text_area :description, {:cols => 60, :rows => 4, :class => 'fullwidth'} %>
+        <%= f.error_message_on :description %>
+      <% end %>
+    </div>
+    <div class="right" data-hook="admin_product_form_right">
+        <%= f.field_container :price do %>
+          <%= f.label :price, t(:master_price) %> <span class="required">*</span><br />
+          <%= f.text_field :price, :value => number_to_currency(@product.price, :unit => '') %>
+          <%= f.error_message_on :price %>
+        <% end %>
+
+
+      <% unless @product.has_variants? %>
+        <%= f.field_container :sku do %>
+          <%= f.label :sku, t(:sku) %><br />
+          <%= f.text_field :sku, :size => 16 %>
+        <% end %>
+
+        <% if Spree::Config[:track_inventory_levels] %>
+          <%= f.field_container :on_hand do %>
+            <%= f.label :on_hand, t(:on_hand) %><br />
+            <%= f.number_field :on_hand, :min => 0 %>
+          <% end %>
+        <% end %>
+
+        
+      <% end %>
+
+    </div>
+  </div>
+
+
+
+  <div data-hook="admin_product_form_additional_fields">
+    <% Spree::Variant.additional_fields.select { |af| af[:only].nil? || af[:only].include?(:product) }.each do |field| %>
+      <%= render :partial => 'spree/admin/shared/additional_field', :locals => { :field => field, :f => f } %>
+    <% end %>
+  </div>
+</div>

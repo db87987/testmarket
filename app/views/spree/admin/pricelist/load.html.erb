@@ -1,5 +1,7 @@
+<% unless @errors.nil? %>
 <% @errors.each do |e| %>
   <p>
     <%= e %>
   </p>
+<% end %>
 <% end %>

@@ -1,0 +1,8 @@
+<%= form_tag('/admin/products/load', :method => :post, :multipart => true) do  %>
+<fieldset>
+  <center>
+  <%= file_field_tag :pricelist %>
+  <%= submit_tag %>
+  </center>
+</fieldset>
+<% end %>

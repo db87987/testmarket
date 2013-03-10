@@ -1,20 +1,41 @@
-<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
-<h2><%= t(:registration) %></h2>
-<div id="registration" data-hook>
-  <div id="account" class="columns alpha eight">
-    <!-- TODO: add partial with registration form -->
-  </div>
-  <% if Spree::Config[:allow_guest_checkout] %>
-    <div id="guest_checkout" data-hook class="columns omega eight">
-      <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
-      <h2><%= t(:guest_user_account) %></h2>
-      <%= form_for @order, :url => update_checkout_registration_path, :method => :put, :html => { :id => 'checkout_form_registration' } do |f| %>
-        <p>
-          <%= f.label :email, t(:email) %><br />
-          <%= f.email_field :email, :class => 'title' %>
-        </p>
-        <p><%= f.submit t(:continue), :class => 'button primary' %></p>
-      <% end %>
-    </div>
-  <% end %>
+<div id="middle">
+	<div id="left">
+	</div>
+	<div id="right" class="checkout-block">
+		<h1>Авторизация</h1>
+		<span class="cb-title">Вы предпочитаете:</span>
+		<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
+		
+		<ul class="choice-list" id="ch-choice-1-step">
+			<li><input type="radio" name="reg-type" id="authorize" checked data-link="#auth-form"><label for="authorize">Войти, введя логин и пароль</label></li>
+			<li><input type="radio" name="reg-type" id="register" data-link="#reg-form"><label for="register">Зарегистрироваться</label></li>
+			<li><input type="radio" name="reg-type" id="without-reg" data-link="#non-reg-form"><label for="without-reg">Купить без регистрации</label></li>
+		</ul>
+		
+			<%= form_for :user, :url => new_user_session_path, :html => {:id => "auth-form", :class => "cb-form"} do |f| %>
+			<input id="user_email" name="user[email]" type="text" value="e-mail" onfocus="if (value=='e-mail') value='';" onblur="if (value=='') value='e-mail';">
+			<input id="user_password" name="user[password]" type="password" placeholder="пароль">
+			<span class="cf-simple-link"><%= link_to "Забыли пароль?", new_user_password_path %></span>
+			<%= f.submit "Войти", :class => 'cf-button' %>
+			<% end %>
+		
+			<%= form_for :user, :url => spree.user_registration_path(@user), :html => {:id => "reg-form", :class => "cb-form"} do |f| %>
+			<input id="user_email" name="user[email]" type="text" value="e-mail" onfocus="if (value=='e-mail') value='';" onblur="if (value=='') value='e-mail';">
+			<input id="user_password" name="user[password]" type="password" placeholder="пароль">
+			<span class="cf-simple-link"> </span>
+			<%= f.submit "Зарегистрироваться", :class => 'cf-button' %>
+			<% end %>
+		
+		
+		<%= form_for @order, :url => update_checkout_registration_path, :method => :put, :html => { :id => 'non-reg-form', :class => "cb-form" } do |f| %>
+			<input id="order_email" name="order[email]" type="text" value="e-mail" onfocus="if (value=='e-mail') value='';" onblur="if (value=='') value='e-mail';">
+			<span class="cf-simple-link"> </span>
+			<%= f.submit "Продолжить", :class => 'cf-button' %>
+		<% end %>
+			
+		<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
+	</div>
+</div>
+<div class="copyright">Allmusicmarket © 2012. Все права защищены, блять. Пошли все нахуй</div>
+<div class="footer-space"></div>
 </div>

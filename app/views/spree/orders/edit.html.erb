@@ -2,8 +2,10 @@
 	<h1>Корзина</h1>
 	
 <% if @order.line_items.empty? %>
+	<div style="min-height: 300px; margin-left: 170px">
   <p><%= t(:your_cart_is_empty) %></p>
   <p><%= link_to t(:continue_shopping), products_path, :class => 'button continue' %></p>
+	</div>
 <% else %>
 
   <%= form_for @order, :url => update_cart_path, :html => {:id => 'update-cart'} do |order_form| %>	
@@ -16,14 +18,17 @@
 		</tr>
 		
 		<tr class="order-button">
-			<td colspan="4"></td>
+			<td colspan="2"></td>
+			<td colspan="2"><%= button_tag "Пересчитать", :id => 'update-button' %></td>
 			<td colspan="2"><%= link_to "перейти к оформлению", checkout_path, :id => 'checkout-link' %></td>
 		</tr>
 	</table>
   <% end %>
 <% end %>
+
+
 		
-	<div class="payments"><img src="img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
+	<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
 </div>
 <div class="copyright">Allmusicmarket © 2012. Все права защищены, блять. Пошли все нахуй</div>
 <div class="footer-space"></div>

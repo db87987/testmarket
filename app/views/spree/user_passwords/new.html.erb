@@ -1,0 +1,24 @@
+<div id="middle">
+	
+	<div id="left">
+	</div>
+	
+	<div id="right" class="checkout-block" style="padding-bottom: 50px">
+		<h1>Забыли пароль?</h1>
+		
+		<p><%= t(:instructions_to_reset_password) %></p>
+		<br/>
+		<%= form_for Spree::User.new, :as => :user, :url => spree.user_password_path, :html => {:class => "cb-form"} do |f| %>
+	      <%= f.label :email, t(:email) %><br />
+	      <%= f.text_field :email %><br />
+
+	
+		<a href="#" class="cf-button" id="sbtn">Сбросить мой пароль</a>
+
+	  <% end %>
+	</div>
+	
+</div>
+
+<div class="copyright">Allmusicmarket © 2012. Все права защищены, блять. Пошли все нахуй</div>
+<div class="footer-space"></div>

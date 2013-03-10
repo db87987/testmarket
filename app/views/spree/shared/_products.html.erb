@@ -25,7 +25,7 @@
 				
 					<li class="<%= cycle("cl-item-first", "", "", "cl-item-four", :name => "classes") %>">
 						<%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url', :class => 'cl-img' %>
-						<span class="cl-title"><%= link_to truncate(product.name, :length => 50), product, :itemprop => "name", :title => product.name %></span>
+						<span class="cl-title"><%= link_to truncate(product.name, :length => 42), product, :itemprop => "name", :title => product.name %></span>
 						<span class="cl-price"><%= number_to_currency product.price %></span>
 						<%= link_to "купить", product, :class => "cl-buy" %>
 					</li>
@@ -34,6 +34,9 @@
 				<% reset_cycle("classes") %>
 				<% end %>
 				</ul>
+				<% if paginated_products.respond_to?(:num_pages) %>
+				  <%= paginate paginated_products %>
+				<% end %>
 			</div>
 		</div>
 	</div>
