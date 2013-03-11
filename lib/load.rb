@@ -30,7 +30,7 @@ class PriceLoader
   end
 
   def process_row sheet, row
-    sku = sheet.cell row, 2
+    sku = sheet.cell(row, 2).to_i.to_s
     name = sheet.cell(row, 3)
     puts "LOADING #{name}"
     short_desc = sheet.cell(row, 4)
