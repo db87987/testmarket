@@ -91,9 +91,7 @@ task :set_current_release, :roles => :app do
     set :current_release, latest_release
 end
 
-
-  set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
-
+set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 
 # - for unicorn - #
@@ -114,4 +112,14 @@ namespace :deploy do
   end
 end
 
+namespace(:customs) do
+  task :symlink, :roles => :app do
+    run <<-CMD
+      ln -nfs #{shared_path}/system/spree #{release_path}/public/spree
+    CMD
+  end
+end
+
+
+after "deploy:symlink","customs:symlink"
 after "deploy", "deploy:cleanup"
