@@ -15,3 +15,5 @@
 /tmp
 
 /public/spree
+
+.DS_Store
