@@ -7,7 +7,7 @@
 	<div id="catalogue-menu">
 		<span class="cm-title cm-title-grey">у нас кое что есть для вас:</span>
 		
-	  <% get_taxonomies.each do |taxonomy| %>		
+	  <% get_taxonomies.limit(1).each do |taxonomy| %>		
 			<%= taxons_tree(taxonomy.root, @taxon, 3) %>
    	  <% end %>	
 			
