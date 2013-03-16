@@ -9,9 +9,22 @@ $(document).ready(function(){
 	$("#catalogue-menu > ul > li > a").click(function(){
 		$(this).toggleClass("active").siblings("ul").slideToggle().
 		parent().siblings("li").find("a:first").removeClass("active").siblings("ul").slideUp();
-		;
 		
 		return false;
+	});
+	
+	$('.fancybox-buttons').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+
+		prevEffect : 'none',
+		nextEffect : 'none',
+
+		helpers : {
+			title : {
+				type : 'inside'
+			}
+		}
 	});
 	
 	// Клик по табам в фильтре

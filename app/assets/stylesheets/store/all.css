@@ -1,3 +1,10 @@
+/*
+
+ *= require store/custom
+
+*/
+
+
 @font-face {
     font-family: 'pf_highway_sans_promedium';
     src: url('pfhighwaysanspro-medium-webfont.eot');
@@ -1374,6 +1381,9 @@ body {background: #1c1c1c url(/img/bg.gif);}
 	cursor: pointer;
 	text-transform: uppercase;
 }
+
+
+
 
 #container .basket-block .basket .order-button a:hover, .order-button button:hover, #container .checkout-block .cb-form .cf-button:hover {background: #c10100;}
 

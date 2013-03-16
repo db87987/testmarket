@@ -1,4 +1,11 @@
 
+<% if current_order.nil? or current_order.line_items.empty? %>
+
+<div class="<%= current_spree_page?(cart_path) ? "h-cart hc-active" : "h-cart" %>">
+	<p>Ваша корзина пуста</p>
+</div>
+
+<% else %>
 
 <div class="<%= current_spree_page?(cart_path) ? "h-cart hc-active" : "h-cart" %>">
 	<p>Товаров: <%= current_order.item_count %><br />Сумма: <%= order_subtotal(current_order) %></p>
@@ -9,7 +16,5 @@
 		end %>
 </div>
 
-
-
-
+<% end %>
 	

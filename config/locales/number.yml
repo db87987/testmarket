@@ -1,9 +1,13 @@
 ru:
   time:
     formats:
+      date_full: "%d %b %Y"
       date_time: "%d %H:%M"
       date_only: "%d"
       detailed: "%a, %d %b %Y %H:%M"
+  date:
+    formats:
+      date_full: "%d %b %Y"
   number:
     currency:
       format:
