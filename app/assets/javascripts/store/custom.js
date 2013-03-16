@@ -1,5 +1,10 @@
 $(document).ready(function(){
 	
+	active = $("#catalogue-menu > ul > li").find(".active").first();
+
+	active.siblings("ul").show();
+	
+	
 	// Аккордеон левого меню каталога
 	$("#catalogue-menu > ul > li > a").click(function(){
 		$(this).toggleClass("active").siblings("ul").slideToggle().
