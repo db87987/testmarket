@@ -1,0 +1,15 @@
+
+
+<div class="<%= current_spree_page?(cart_path) ? "h-cart hc-active" : "h-cart" %>">
+	<p>Товаров: <%= current_order.item_count %><br />Сумма: <%= order_subtotal(current_order) %></p>
+	<%= if current_spree_page?(cart_path)
+		link_to "перейти к оформлению", checkout_path, :id => 'checkout-link'
+		else
+		link_to "Перейти в корзину", cart_path
+		end %>
+</div>
+
+
+
+
+	

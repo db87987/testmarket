@@ -10,12 +10,7 @@
 		  <li><%= link_to "Забыли пароль?", new_user_password_path %></li>
 		<% end %>
 	</ul>
-	<% unless current_spree_page?(cart_path) %>
-	<div class="h-cart">
-		<%= link_to_cart %>
-	</div>
-	<% end %>
-
+	<%= render :partial => 'spree/shared/link_to_cart' %>
 	<div class="h-phone"><span>812</span> 984-5220</div>
 
 	<a href="#" class="h-map-link">контакты и карта проезда</a>

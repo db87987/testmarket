@@ -86,7 +86,7 @@
 
 				<% if products.any? %>
 				<ul class="catalogue-list cl-inside">
-				<% products.each do |product| %>
+				<% products.descend_by_updated_at.each do |product| %>
 				<% if Spree::Config[:show_zero_stock_products] || product.has_stock? %>
 				
 					<li class="<%= cycle("cl-item-first", "", "", "cl-item-four", :name => "classes") %>">
