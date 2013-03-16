@@ -113,7 +113,7 @@ namespace :deploy do
 end
 
 namespace(:customs) do
-  task :symlink, :roles => :app do
+  task :create_symlink, :roles => :app do
     run <<-CMD
       ln -nfs #{shared_path}/system/spree #{release_path}/public/spree
     CMD

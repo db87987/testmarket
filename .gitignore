@@ -14,6 +14,8 @@
 /log/*.log
 /tmp
 
-/public/spree
+/public/spree/contents
+/public/spree/products
+/public/spree/uploads
 
 .DS_Store
