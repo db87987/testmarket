@@ -121,5 +121,5 @@ namespace(:customs) do
 end
 
 
-after "deploy:symlink","customs:symlink"
+after "deploy:symlink","customs:create_symlink"
 after "deploy", "deploy:cleanup"
