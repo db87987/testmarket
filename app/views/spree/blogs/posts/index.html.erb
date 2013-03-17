@@ -6,7 +6,9 @@
 			<h1>Новости компании</h1>
 			
 			<% if @posts.blank? %>
-		    <h2><%= t('spree.blogs.no_posts') %></h2>
+			<div style="min-height: 200px;">
+		    <h2>Новостей пока нет, но скоро будут!</h2>
+			</div>
 		  <% else %>
 			<dl>
 		    <%= render :partial => 'spree/blogs/shared/preview', :collection => @posts, :as => :post %>
