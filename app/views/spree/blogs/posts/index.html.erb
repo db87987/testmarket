@@ -1,13 +1,17 @@
 	<div id="middle">
 		<div id="left">
-		
+			<ul class="l-menu">
+				<li><%= span_link "Статьи", '/articles' %></li>
+		        <li><%= span_link "Новости компании", '/news' %></li>
+			</ul>
 		</div>
 		<div id="right" class="news-list">
-			<h1>Новости компании</h1>
+	
+			<h1><%= @blog.name %></h1>
 			
 			<% if @posts.blank? %>
 			<div style="min-height: 200px;">
-		    <h2>Новостей пока нет, но скоро будут!</h2>
+		    <h2>Информации пока нет, но скоро будет!</h2>
 			</div>
 		  <% else %>
 			<dl>
