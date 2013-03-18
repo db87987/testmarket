@@ -9,18 +9,7 @@
     
     	<div id="middle">
 			<div id="left">
-				<ul class="l-menu">
-					<% unless @pages.blank? %>
-					  <% @pages.each do |page| %>
-					    <% next if page.root? || !page.visible? %>
-						<%= if page.matches?(request.path)
-							content_tag(:li, content_tag(:span, page.nav_title))
-							else
-							content_tag(:li, link_to(page.nav_title, page.path))
-							end %>
-					  <% end %>
-					<% end %>
-				</ul>
+				 <%= render :partial => "spree/shared/render_menu", :locals => {:menu_bar => Spree::MenuBar.find_by_name(content.title)} %>
 			</div>
 			<div id="right">
 				<div class="content"  style="min-height: 300px">

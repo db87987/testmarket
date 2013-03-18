@@ -39,6 +39,8 @@ gem 'spree_essential_blog', :git => 'git://github.com/citrus/spree_essential_blo
 gem 'spree_essential_cms', :git => 'git://github.com/citrus/spree_essential_cms.git'
 
 
+
+
 gem 'synergy', :git => 'git://github.com/pirj/synergy.git'
 
 group :development do
