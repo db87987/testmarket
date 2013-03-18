@@ -18,3 +18,4 @@
 //= require store/jquery.carouFredSel-6.1.0-packed
 //= require store/fotorama
 //= require store/custom
+//= require store/spree_commentable

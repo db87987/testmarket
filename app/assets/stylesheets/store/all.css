@@ -2,6 +2,7 @@
 
  *= require store/custom
 
+ *= require store/spree_commentable
 */
 
 
@@ -346,7 +347,8 @@ body {background: #1c1c1c url(/img/bg.gif);}
 	text-transform: uppercase;
 }
 
-#container .banners-small li/*, #container .banners-small li a*/ {
+#container .banners-small li/*, #container .banners-small li a *= require store/spree_commentable
+*/ {
 	float: left;
 	overflow: hidden;
 	position: relative;
@@ -361,6 +363,7 @@ body {background: #1c1c1c url(/img/bg.gif);}
 	margin: 0;
 	text-indent: -1000px;
 }
+ *= require store/spree_commentable
 */
 #container .banners-small li img, #container .slider-wrap ul li img {display: block;}
 
@@ -397,7 +400,8 @@ body {background: #1c1c1c url(/img/bg.gif);}
 
 #container .banners-small .bs-middle {margin: 0 1px; width: 318px;}
 #container .banners-small .bs-middle .bs-title {width: 183px;}
-/*#container .banners-small .bs-middle a {width: 318px;}*/
+/*#container .banners-small .bs-middle a {width: 318px;} *= require store/spree_commentable
+*/
 
 #container #middle {
 	background: #fff url(/img/middle-bg.gif) repeat-x left bottom;

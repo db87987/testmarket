@@ -38,7 +38,7 @@ gem 'spree_essentials', '~> 0.5.0'
 gem 'spree_essential_blog', :git => 'git://github.com/citrus/spree_essential_blog.git'
 gem 'spree_essential_cms', :git => 'git://github.com/citrus/spree_essential_cms.git'
 
-
+gem 'spree_commentable', :git => 'git://github.com/babrovka/spree_commentable'
 
 
 gem 'synergy', :git => 'git://github.com/pirj/synergy.git'
