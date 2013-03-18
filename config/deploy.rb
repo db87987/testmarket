@@ -112,16 +112,4 @@ namespace :deploy do
   end
 end
 
-set :weird_symlinks, { 'spree' => 'public/spree' } unless exists?(:weird_symlinks)
-
-namespace(:customs) do
-  task :create_symlink, :roles => :app do
-    run <<-CMD
-      ln -nfs #{shared_path}/system/spree #{release_path}/public/spree
-    CMD
-  end
-end
-
-
-after "deploy:create_symlink","customs:create_symlink"
 after "deploy", "deploy:cleanup"
