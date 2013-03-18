@@ -112,14 +112,21 @@ namespace :deploy do
   end
 end
 
-namespace(:customs) do
-  task :create_symlink, :roles => :app do
-    run <<-CMD
-      ln -nfs #{shared_path}/system/spree #{release_path}/public/spree
-    CMD
+set :weird_symlinks, { 'spree' => 'public/spree' } unless exists?(:weird_symlinks)
+
+namespace :symlinks do
+    desc "|al capistrano-recipes| Make all the symlinks in a single run"
+    task :make, :roles => :app, :except => { :no_release => true } do
+
+      commands += weird_symlinks.map do |from, to|
+        "rm -rf #{latest_release}/#{to} && \
+         ln -s #{shared_path}/#{from} #{latest_release}/#{to}"
+      end
+
+      run <<-CMD
+        cd #{latest_release} && #{commands.join(" && ")}
+      CMD
+    end
   end
-end
 
-
-after "deploy:symlink","customs:create_symlink"
 after "deploy", "deploy:cleanup"
