@@ -41,7 +41,7 @@
         <div class="clear"></div>
 
         <div class="form-buttons actions filter-actions" data-hook="admin_products_index_search_buttons">
-          <%= button t(:search), 'icon-search' %>
+          <%= button t(:search) %>
         </div>
     <% end %>
   </div>
@@ -88,7 +88,7 @@
               &nbsp;
               <%= link_to_delete comment, no_text: true %>
               &nbsp;
-              <%= link_to '', admin_fast_approve_url(comment), class: 'icon_link with-tip no-text' << (comment.approve ? ' icon-eye-open' : ' icon-eye-close'), title: (comment.approve ? ' Approved Comment' : 'Approve Comment') %>
+              <%= link_to '', admin_fast_approve_url(comment), title: (comment.approve ? ' Approved Comment' : 'Approve Comment') %>
             </td>
           </tr>
       <% end %>
