@@ -1,0 +1,17 @@
+	<div id="middle">
+		<div id="left">
+			<ul class="l-menu">
+				<li><%= span_link "Новости компании", '/news' %></li>
+				<li><%= span_link "Статьи", '/articles' %></li>
+				<li><%= span_link "Отзывы", '/comments' %></li>
+			</ul>
+		</div>
+		<div id="right">
+			<%= render partial: 'spree/comments/show_comments_list' %>
+			<%= render partial: 'spree/comments/show_comments_form' %>
+			<div class="payments"><img src="/img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
+		</div>
+	</div>
+	<%= render :partial => 'spree/shared/copyright' %>
+	<div class="footer-space"></div>
+</div>

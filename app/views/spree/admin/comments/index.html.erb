@@ -1,0 +1,103 @@
+<% content_for :page_title do %>
+  <%= t(:listing_comments) %>
+<% end %>
+
+<% content_for :table_filter_title do %>
+  <%= t(:search) %>
+<% end %>
+
+<% content_for :table_filter do %>
+  <div data-hook="admin_products_sidebar">
+
+    <%= search_form_for [:commentable, :admin, @search], url: admin_comments_path do |f| %>
+
+        <div data-hook="admin_products_index_search">
+          <div class="alpha three columns">
+            <div class="field">
+              <%= f.label :email_cont, t(:email) %>
+              <%= f.text_field :email_cont, size: 25 %>
+            </div>
+          </div>
+          <div class="three columns">
+            <div class="field">
+              <%= f.label :author_cont, t(:author) %>
+              <%= f.text_field :author_cont, size: 15 %>
+            </div>
+          </div>
+          <div class="six columns">
+            <div class="field">
+              <%= f.label :comment_cont, t(:comment) %>
+              <%= f.text_field :comment_cont, size: 30 %>
+            </div>
+          </div>
+          <div class="three columns omega">
+            <div class="field select">
+              <%= t(:show_comment) %>
+              <%= f.select :approve_eq, options_for_select([[t(:all_comments), ''], [t(:approved_comments), 1], [t(:not_approved_comments), 0]])  %>
+            </div>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="form-buttons actions filter-actions" data-hook="admin_products_index_search_buttons">
+          <%= button t(:search), 'icon-search' %>
+        </div>
+    <% end %>
+  </div>
+<% end %>
+
+<div id="new_product" data-hook></div>
+
+<% if @collection.any? %>
+  <table class="index" id="listing_comments">
+    <colgroup>
+       <col style="width: 12%;">
+       <col style="width: 17%;">
+       <col style="width: 40%;">
+       <col style="width: 15%;">
+       <col style="width: 13%;">
+    </colgroup>
+    <thead>
+      <tr data-hook="admin_comments_index_headers">
+        <th><%= t(:author_name) %></th>
+        <th><%= t(:author_email) %></th>
+        <th><%= t(:comment) %></th>
+        <th data-hook="admin_products_index_header_actions" class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @collection.each do |comment| %>
+          <tr data-hook="admin_products_index_rows" class="<%= cycle('odd', 'even') %>">
+            <td class="align-center"><%= comment.author rescue '' %></td>
+            <td class="align-center"><%= comment.email %></td>
+            <td class="comment">
+              <% if(comment.comment.size > 100) %>
+                <span class="show_comment_toggle"><%= t(:click_to_show) %></span>
+                <span class="full_comment comment_line">
+                  <%= comment.comment %>
+                </span>
+              <% end %>
+              <span class="short_comment comment_line">
+                <%= truncate(comment.comment, length: 100, separator: '...') %>
+              </span>
+            </td>
+
+            <td class="actions" data-hook="admin_products_index_row_actions">
+              <%= link_to_edit comment, no_text: true, class: 'edit' %>
+              &nbsp;
+              <%= link_to_delete comment, no_text: true %>
+              &nbsp;
+              <%= link_to '', admin_fast_approve_url(comment), class: 'icon_link with-tip no-text' << (comment.approve ? ' icon-eye-open' : ' icon-eye-close'), title: (comment.approve ? ' Approved Comment' : 'Approve Comment') %>
+            </td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="no-objects-found">
+    <%= t(:no_results) %>
+  </div>
+<% end %>
+
+<%= paginate @collection %>

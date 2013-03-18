@@ -1,0 +1,16 @@
+<% content_for :page_actions do %>
+  <li><%= button_link_to t(:back_to_comments_list), session[:return_to] || admin_comments_url, icon: 'icon-arrow-left' %></li>
+<% end %>
+
+<%= render :partial => 'spree/shared/error_messages', locals: { target: @comment } %>
+
+<%= form_for [:admin, @comment], method: :put, url: admin_comment_path ,html: { multipart: true } do |f| %>
+  <fieldset class="no-border-top">
+    <%= render partial: 'form', locals: { f: f } %>
+    <div class="form-buttons filter-actions actions" data-hook="buttons">
+      <%= button t(:update), 'icon-refresh' %>
+      <span class="or"><%= t(:or) %></span>
+      <%= button_link_to t(:cancel), admin_comments_url, icon: 'icon-remove' %>
+    </div>
+  </fieldset>
+<% end %>

@@ -13,6 +13,13 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	// Отзывы
+	$(".reviews-list dt").click(function(){
+		$(this).next("dd").slideToggle().siblings("dd").slideUp();
+		
+		return false;
+	});
+	
 	$('.fancybox-buttons').fancybox({
 		openEffect  : 'none',
 		closeEffect : 'none',
@@ -170,12 +177,7 @@ $(document).ready(function(){
 		return false;
 	});
 	
-	// Отзывы
-	$(".reviews-list dt").click(function(){
-		$(this).next("dd").slideToggle().siblings("dd").slideUp();
-		
-		return false;
-	});
+
 	
 	
 

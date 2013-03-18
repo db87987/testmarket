@@ -1,0 +1,37 @@
+<div data-hook="admin_product_form_fields">
+
+  <div class="left eight columns alpha" data-hook="admin_product_form_left">
+    <%= f.field_container :author do %>
+      <%= f.label :author, raw(t(:author) + content_tag(:span, ' *', class: 'required')) %>
+      <%= f.text_field :author, class: 'fullwidth title' %>
+      <%= f.error_message_on :author %>
+    <% end %>
+  </div>
+  <div class="right eight columns omega" data-hook="admin_product_form_right">
+    <%= f.field_container :email do %>
+      <%= f.label :email, raw(t(:email) + content_tag(:span, ' *',  class: "required")) %>
+      <%= f.text_field :email, class: 'fullwidth title' %>
+      <%= f.error_message_on :email %>
+    <% end %>
+  </div>
+  <div class="right sixteen columns alpha" data-hook="admin_product_form_right">
+    <%= f.field_container :comment do %>
+      <%= f.label :comment, t(:comment) %>
+      <%= f.text_area :comment, {rows: 4, class: 'fullwidth'} %>
+      <%= f.error_message_on :comment %>
+    <% end %>
+
+    <%= f.field_container :approve, class: ['checkbox'] do %>
+      <label>
+        <%= f.check_box :approve %>
+        <%= t(:approve) %>
+      </label>
+    <% end %>
+  </div>
+
+  <div class="clear"></div>
+
+  <div data-hook="admin_product_form_additional_fields"></div>
+
+  <div class="clear"></div>
+</div>

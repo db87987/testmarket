@@ -1,0 +1,13 @@
+<div class="review-form-block">
+	<span class="rf-title">Оставить свой отзыв</span>
+	<%= form_for @comment, :url => { :action => "create" }, :html => { :multipart => true, :id => "review-form" } do |f| %>
+		<div class="rf-name-fieldset">
+			<label>Представьтесь:</label>
+			<input id="comment_author" name="comment[author]" class="rf-name" value="Введите Ваше имя..." type="text" onfocus="if (value=='Введите Ваше имя...') value='';" onblur="if (value=='') value='Введите Ваше имя...';">
+			<input id="comment_email" name="comment[email]" class="rf-email" value="Введите Ваш e-mail" type="text" onfocus="if (value=='Введите Ваш e-mail') value='';" onblur="if (value=='') value='Введите Ваш e-mail';">
+		</div>
+		<textarea id="comment_comment" name="comment[comment]" onfocus="if (value=='Ваш отзыв') value='';" onblur="if (value=='') value='Ваш отзыв';">Ваш отзыв</textarea>
+		<input name="commit" type="submit" value="Отправить">
+	</form>
+	<% end %>
+</div>

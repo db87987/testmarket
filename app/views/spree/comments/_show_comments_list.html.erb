@@ -1,0 +1,7 @@
+<h1>Отзывы о компании</h1>
+<dl class="reviews-list">
+<% @comments.each do |comment| %>
+	<dt><%= comment.author %></dt>
+	<dd><%= comment.comment %></dd>
+<% end %>
+</dl>
