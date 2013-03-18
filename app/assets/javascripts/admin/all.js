@@ -13,7 +13,6 @@
 //= require admin/spree_promo
 
 //= require_tree .
-//= require admin/spree_editor
 //= require admin/spree_essential_menus
 //= require admin/spree_essentials
 //= require admin/synergy

@@ -25,7 +25,6 @@ gem 'spree', '= 1.1.3' #:git => "git://github.com/spree/spree.git", :branch => '
 gem 'rails-i18n'
 gem 'spree_i18n', :git => 'git://github.com/spree/spree_i18n.git'
 
-gem 'spree_editor', :git => 'git://github.com/spree/spree_editor.git'
 gem 'tinymce-rails', '>= 3.4.7.0.1'
 gem 'tinymce-rails-langs'
 
