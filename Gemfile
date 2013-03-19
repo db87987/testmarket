@@ -21,7 +21,7 @@ gem 'execjs'
 gem 'therubyracer'
 
 
-gem 'spree', '= 1.1.3' #:git => "git://github.com/spree/spree.git", :branch => '1-1-stable'
+gem 'spree', '= 1.1.5'
 gem 'rails-i18n'
 gem 'spree_i18n', :git => 'git://github.com/spree/spree_i18n.git'
 

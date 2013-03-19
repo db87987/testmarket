@@ -15,9 +15,9 @@
 					
 					<ul class="cf-sort">
 						<li>сортировать:</li>
-						<li><%= link_to "По названию", :query => {:sort => :name} %></li>
+						<li><%= link_to "По названию", :sort => "name" %></li>
 						<li><a href="#">по НАЛИЧИю</a></li>
-						<li><a href="#">по ЦЕНе</a></li>
+						<li><%= link_to "По цене", :sort => "price" %></li>
 					</ul>
 					
 					<br class="clear" />
@@ -86,7 +86,7 @@
 
 				<% if products.any? %>
 				<ul class="catalogue-list cl-inside">
-				<% products.ascend_by_updated_at.each do |product| %>
+				<% products.each do |product| %>
 				<% if Spree::Config[:show_zero_stock_products] || product.has_stock? %>
 				
 					<li class="<%= cycle("cl-item-first", "", "", "cl-item-four", :name => "classes") %>">
