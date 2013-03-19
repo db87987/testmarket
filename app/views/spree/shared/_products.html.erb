@@ -15,9 +15,9 @@
 					
 					<ul class="cf-sort">
 						<li>сортировать:</li>
-						<li><%= link_to "По названию", :sort => "name" %></li>
-						<li><a href="#">по НАЛИЧИю</a></li>
-						<li><%= link_to "По цене", :sort => "price" %></li>
+						<li><%= nav_link "Название", :sort => "name" %></li>
+						<li><%= nav_link "Популярность", :sort => "popularity" %></li>
+						<li><%= nav_link "Цена", :sort => "price" %></li>
 					</ul>
 					
 					<br class="clear" />
