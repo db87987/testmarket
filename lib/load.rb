@@ -56,7 +56,7 @@ class PriceLoader
     product.description = desc
     product.price = price.to_f
     product.available_on ||= Time.now
-    product.count_on_hand = quantity
+    product.availability_status = quantity
 
     product.save
 
