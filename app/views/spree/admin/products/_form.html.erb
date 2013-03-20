@@ -40,9 +40,9 @@
         <% end %>
 
         <% if Spree::Config[:track_inventory_levels] %>
-          <%= f.field_container :on_hand do %>
-            <%= f.label :on_hand, t(:on_hand) %><br />
-            <%= f.number_field :on_hand, :min => 0 %>
+          <%= f.field_container :availability_status do %>
+            <%= f.label :availability_status, "Наличие" %><br />
+            <%= f.select :availability_status, Spree::Product::AVAILABILITY_STATUSES.map { |k, v| [t(k), v] } %>
           <% end %>
         <% end %>
 

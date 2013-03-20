@@ -69,7 +69,7 @@ module Spree
                     :meta_keywords, :price, :sku, :deleted_at, :prototype_id,
                     :option_values_hash, :on_hand, :weight, :height, :width, :depth,
                     :shipping_category_id, :tax_category_id, :product_properties_attributes,
-                    :variants_attributes, :taxon_ids
+                    :variants_attributes, :taxon_ids, :availability_status
 
     attr_accessible :cost_price if Variant.table_exists? && Variant.column_names.include?('cost_price')
 
@@ -81,6 +81,8 @@ module Spree
     alias :options :product_option_types
 
     after_initialize :ensure_master
+    
+    AVAILABILITY_STATUSES = [["on_hand", "1"], ["ready_for_order", "2"], ["is_waited", "3"], ["no_available", "4"]]
 
     def variants_with_only_master
       ActiveSupport::Deprecation.warn("[SPREE] Spree::Product#variants_with_only_master will be deprecated in Spree 1.3. Please use Spree::Product#master instead.")

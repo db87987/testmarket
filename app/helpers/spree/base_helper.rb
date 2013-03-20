@@ -1,6 +1,20 @@
 module Spree
   module BaseHelper
     
+    def availability_status(status)
+      
+      if status == 1
+        content_tag(:span, t(:on_hand), :class => "on_hand")
+      elsif status == 2
+        content_tag(:span, t(:ready_for_order), :class => "ready_for_order") 
+      elsif status == 3
+        content_tag(:span, t(:is_waited), :class => "is_waited")      
+      else
+        content_tag(:span, t(:no_available), :class => "no_available") 
+      end      
+         
+    end
+    
     def link_to_submit(*args, &block)
       link_to_function (block_given? ? capture(&block) : args[0]), "$(this).closest('form').submit()", args.extract_options!
     end

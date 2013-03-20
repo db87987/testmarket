@@ -30,11 +30,11 @@
 						<div class="content">
 							<p><%= @product.short_description %></p>
 						</div>
+						<div class="availability_status"><%= availability_status @product.availability_status %></div>
 						
+						<% unless @product.availability_status == 4 %>
 						<%= form_for :order, :url => populate_orders_url do |f| %>
-						
 						<% if @product.price %>
-						
 						<div class="buy-block">
 							<%= button_tag :class => 'bb-button', :id => 'add-to-cart-button', :type => :submit do %>
 				              <%= t(:add_to_cart) %>
@@ -45,11 +45,13 @@
 						              1, :class => 'title', :in => 1..@product.on_hand %>
 							</div>
 							<span class="bb-price"><%= number_to_currency @product.price %></span>
+							
 						</div>
 					          <% else %>
 					            <%= content_tag('strong', t(:out_of_stock)) %>
 					          <% end %>
 					    <% end %>    
+						<% end %>
 						<% end %>
 					</div>
 				</div>

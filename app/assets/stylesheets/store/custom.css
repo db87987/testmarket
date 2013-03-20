@@ -9,3 +9,23 @@
 	margin-bottom: 10px;
 	margin-top: -20px;
 }
+
+.content {
+	min-height: 90px;
+}
+
+.availability_status {
+	margin-bottom: 10px;
+}
+
+.on_hand {
+	color: #33CC00;
+}
+
+.ready_for_order, .is_waited {
+	color: #999999;
+}
+
+.no_available {
+	color: #CC0033;
+}
