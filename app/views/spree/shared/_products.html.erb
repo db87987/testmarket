@@ -27,12 +27,23 @@
 						<a href="#" title="Закрыть" class="cg-close">Закрыть</a>
 												
 						<div class="cg-points" id="cg-category" style="margin-top: 30px;">
+							
+							<% if @taxon.children.blank? %>
+							<% @taxon.ancestors.last.children.in_groups_of(1, false) do |row| %>
+							  <ul class="cp-points-list">
+								<% for taxon in row %>
+								<li><%= link_to taxon.name, seo_url(taxon) %></li>  
+								<% end %>   
+							  </ul>
+							<% end %>
+							<% else %>
 							<% @taxon.children.in_groups_of(1, false) do |row| %>
 							  <ul class="cp-points-list">
 								<% for taxon in row %>
 								<li><%= link_to taxon.name, seo_url(taxon) %></li>  
 								<% end %>   
 							  </ul>
+							<% end %>
 							<% end %>
 						</div>
 						
