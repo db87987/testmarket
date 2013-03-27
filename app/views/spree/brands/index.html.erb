@@ -12,7 +12,7 @@
 			<% @brands.in_groups_of(1, false) do |row| %>
 				<% for taxon in row %>
 				<div class="brands-column">
-				      <h3><%= link_to taxon.name, seo_url(taxon) %></h3>
+				      <%= link_to taxon.name, seo_url(taxon) %>
 				    <% end %>
 				</div>
 			<% end %>

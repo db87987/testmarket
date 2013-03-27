@@ -25,51 +25,17 @@
 					<div class="cf-goods">
 						<span class="cg-title">сортировка товаров</span>
 						<a href="#" title="Закрыть" class="cg-close">Закрыть</a>
-						
-						<ul class="cg-tabs">
-							<li><a href="#cg-category" class="active" ><span>Выбрать по категории</span></a></li>
-							<li><a href="#cg-brand"><span>Выбрать по производителю</span></a></li>
-						</ul>
-						
-						<div class="cg-points" id="cg-category">
-							<ul class="cp-flags">
-								<li><a href="#" class="chack-all">Выбрать все</a></li>
-								<li><a href="#" class="de-chack-all">Убрать все</a></li>
-							</ul>
-							
+												
+						<div class="cg-points" id="cg-category" style="margin-top: 30px;">
 							<% @taxon.children.in_groups_of(1, false) do |row| %>
 							  <ul class="cp-points-list">
 								<% for taxon in row %>
-								<li><input type="checkbox" name="dj-dj" id="dj-dj" checked><label for="dj-dj"><%= taxon.name %></label></li>  
+								<li><%= link_to taxon.name, seo_url(taxon) %></li>  
 								<% end %>   
 							  </ul>
 							<% end %>
-							
-							
 						</div>
 						
-						<div class="cg-points" id="cg-brand">
-							<ul class="cp-flags">
-								<li><a href="#" class="chack-all">Выбрать все</a></li>
-								<li><a href="#" class="de-chack-all">Убрать все</a></li>
-							</ul>
-							
-							<ul class="cp-points-list">
-								<li><input type="checkbox" name="xlr-xlr2" id="xlr-xlr2"><label for="xlr-xlr2">Кабели XLR-XLR</label></li>
-								<li><input type="checkbox" name="col2" id="col2"><label for="col2">Колоночный кабель</label></li>
-								<li><input type="checkbox" name="xlr2" id="xlr2"><label for="xlr2">Кабели джек-XLR</label></li>
-								<li><input type="checkbox" name="other2" id="other2"><label for="other2">Кабели распаяные прочие</label></li>
-								<li><input type="checkbox" name="ins2" id="ins2"><label for="ins2">Кабель инсертный</label></li>
-							</ul>
-							
-							<ul class="cp-points-list">
-								<li><input type="checkbox" name="rsa-xlr3" id="rsa-xlr3" checked><label for="rsa-xlr3">Мультимедийные кабели</label></li>
-								<li><input type="checkbox" name="midi3" id="midi3"><label for="midi3">Мультипары</label></li>
-								<li><input type="checkbox" name="other3" id="other3"><label for="other3">Стенды для демонстрации кабеля</label></li>
-							</ul>
-						</div>
-
-						<div class="cf-sort-button"><a href="#">Применить сортировку</a></div>
 					</div>
 				</div>
 				<% end %>
