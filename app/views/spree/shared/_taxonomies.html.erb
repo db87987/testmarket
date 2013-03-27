@@ -10,7 +10,9 @@
 	  <% get_taxonomies.limit(1).each do |taxonomy| %>		
 			<%= taxons_tree(taxonomy.root, @taxon, 3) %>
    	  <% end %>	
-			
+	<ul>
+	<a href="/brands" class="cm-title">Бренды</a>
+	</ul>		
 	</div>
 	
 	

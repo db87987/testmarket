@@ -1,0 +1,26 @@
+<div id="middle">
+	<div class="middle-idx">
+	
+			<%= render :partial => 'spree/shared/taxonomies' %>
+	
+	<div class="right-idx">
+		<ul class="bc">
+			<%= breadcrumbs(@taxon) %> 
+		</ul>
+			<div class="brands">
+			<h1>Производители:</h1>
+			<% @brands.in_groups_of(1, false) do |row| %>
+				<% for taxon in row %>
+				<div class="brands-column">
+				      <h3><%= link_to taxon.name, seo_url(taxon) %></h3>
+				    <% end %>
+				</div>
+			<% end %>
+			</div>
+	</div>
+		
+
+	</div>
+</div>
+<%= render :partial => 'spree/shared/copyright' %>
+<div class="footer-space"></div>

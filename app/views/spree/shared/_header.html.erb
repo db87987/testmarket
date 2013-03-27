@@ -3,7 +3,7 @@
 	<div class="h-notice">онлайн-магазин<br />звукового и светового<br />оборудования</div>
 	<ul class="h-links" id="nav-bar">
 		<% if current_user %>
-		  <li><%= link_to t(:logout), destroy_user_session_path, :method => :delete %></li>
+		  <li><%= link_to t(:logout), destroy_user_session_path %></li>
 		<% else %>
 		  <li><%= link_to "Вход", login_path %></li>
 		  <li><%= link_to "Регистрация", signup_path %></li>

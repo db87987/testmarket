@@ -29,3 +29,15 @@
 .no_available {
 	color: #CC0033;
 }
+
+.brands {
+	width: 400px;
+	margin-top: 20px;
+	margin-left: 100px;
+}
+
+.brands-column {
+	width: 200px;
+	float: left;
+}
+
