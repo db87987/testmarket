@@ -1,5 +1,6 @@
 ---
 ru:
+  picture: "Изображения"
   on_hand: "В наличии"
   ready_for_order: "Доступен к заказу"
   is_waited: "Ожидается"

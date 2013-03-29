@@ -9,7 +9,12 @@ module Spree
 
       def load
         @errors = PriceLoader.new(params[:pricelist].tempfile, params[:pricelist]).load_price
-      end      
+      end     
+      
+      def picture
+        @load_pictures = system '/lib/picture.rb'
+      end
+       
     end
   end
 end
