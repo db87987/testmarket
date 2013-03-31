@@ -3,6 +3,6 @@
 	<span><%= l post.posted_at, :format => :date_full %></span>
 </dt>
 <dd>
-	<p><%= post.rendered_preview %></p>
+	<p><%= truncate(strip_tags(post.body), length: 230).html_safe %></p>
 	<%= link_to "Читать далее", post_seo_path(@blog, post) %>
 </dd>
