@@ -13,7 +13,21 @@
 
   <div data-hook="search_results">
     <% if @products.empty? %>
-      <h6 class="search-results-title"><%= t(:no_products_found) %></h6>
+      	<div id="middle">
+			<div id="left">
+			</div>
+			<div id="right">
+				<div class="content"  style="min-height: 300px">
+				
+				        <h1>К сожалению, Ваш поиск ни к чему не привел</h1>
+				   
+				</div>
+				
+				<div class="payments"><img src="img/payments.jpg" width="448" height="54" alt="Доступные способы оплаты"></div>
+			</div>
+		</div>
+		<%= render :partial => 'spree/shared/copyright' %>
+		<div class="footer-space"></div>
     <% else %>
       <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
     <% end %>

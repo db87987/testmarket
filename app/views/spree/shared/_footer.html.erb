@@ -59,12 +59,15 @@
 					<li><a href="#">Расширенный поиск</a></li>
 					<li><a href="#">Изготовление кейсов и кофров</a></li>
 					<li><a href="#">Наши вакансии</a></li>
-				</ul>
-
-				<form name="f-search" id="f-search" class="f-search" method="GET" action="search.html">
-					<input name="q" value="поиск по сайту" onfocus="if (value=='поиск по сайту') value='';" onblur="if (value=='') value='поиск по сайту';" />
+				</ul>							
+								
+				<form accept-charset="UTF-8"  id="f-search" class="f-search" method="GET" action="/products">
+					<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+					<input id="keywords" name="keywords" name="q" value="поиск по сайту" onfocus="if (value=='поиск по сайту') value='';" onblur="if (value=='') value='поиск по сайту';" />
 					<input type="submit" value="Найти" title="Найти">
 				</form>
+
+				
 			</div>
 
 			<div class="fi-item fi-item-last">

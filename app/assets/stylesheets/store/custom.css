@@ -36,6 +36,10 @@
 	margin-left: 50px;
 }
 
+.brands-column:last-child {
+	margin-bottom: 40px;
+}
+
 .brands-column {
 	width: 200px;
 	float: left;
