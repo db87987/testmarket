@@ -17,3 +17,4 @@
 //= require admin/spree_essentials
 //= require admin/synergy
 //= require admin/spree_commentable
+//= require admin/spree_editor

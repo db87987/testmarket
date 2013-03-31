@@ -40,7 +40,8 @@ gem 'spree_essential_cms', :git => 'git://github.com/citrus/spree_essential_cms.
 gem 'spree_commentable', :git => 'git://github.com/babrovka/spree_commentable'
 
 gem 'spree_related_products', :git => 'git://github.com/spree/spree_related_products.git', :branch => '1-1-stable'
-
+gem 'spree_editor', :github => 'spree/spree_editor', :branch => '1-3-stable'
+gem 'tinymce-rails-langs'
 
 gem 'synergy', :git => 'git://github.com/pirj/synergy.git'
 

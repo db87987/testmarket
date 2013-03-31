@@ -25,9 +25,13 @@
 					<div class="cf-goods">
 						<span class="cg-title">сортировка товаров</span>
 						<a href="#" title="Закрыть" class="cg-close">Закрыть</a>
+						
+						<ul class="cg-tabs">
+							<li><a href="#cg-category" class="active" ><span>Выбрать по категории</span></a></li>
+							<li><a href="#cg-brand"><span>Выбрать по производителю</span></a></li>
+						</ul>
 												
-						<div class="cg-points" id="cg-category" style="margin-top: 30px;">
-							
+						<div class="cg-points" id="cg-category">	
 							<% if @taxon.children.blank? %>
 							<% @taxon.ancestors.last.children.in_groups_of(1, false) do |row| %>
 							  <ul class="cp-points-list">
@@ -38,6 +42,26 @@
 							<% end %>
 							<% else %>
 							<% @taxon.children.in_groups_of(1, false) do |row| %>
+							  <ul class="cp-points-list">
+								<% for taxon in row %>
+								<li><%= link_to taxon.name, seo_url(taxon) %></li>  
+								<% end %>   
+							  </ul>
+							<% end %>
+							<% end %>
+						</div>
+						
+						<div class="cg-points" id="cg-brand">							
+							<% if @taxon.children.blank? %>
+							<% @taxon.ancestors.last.children.in_groups_of(1, false) do |row| %>
+							  <ul class="cp-points-list">
+								<% for taxon in row %>
+								<li><%= link_to taxon.name, seo_url(taxon) %></li>  
+								<% end %>   
+							  </ul>
+							<% end %>
+							<% else %>
+							<% @brands.in_groups_of(1, false) do |row| %>
 							  <ul class="cp-points-list">
 								<% for taxon in row %>
 								<li><%= link_to taxon.name, seo_url(taxon) %></li>  
