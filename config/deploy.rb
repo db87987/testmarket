@@ -112,10 +112,4 @@ namespace :deploy do
   end
 end
 
-task :link_imgs do     
-  run "ln -s #{shared_path}/system #{release_path}/public/system" 
-end    
-
-after "deploy:update_code", :link_imgs
-
 after "deploy", "deploy:cleanup"
