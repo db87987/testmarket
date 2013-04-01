@@ -10,12 +10,11 @@
 //= require store/spree_core
 //= require store/spree_auth
 //= require store/spree_promo
-//= require_tree .
 //= require store/spree_essential_menus
 
 //= require store/jquery.mousewheel-3.0.6.pack
-//= require store/jquery.fancybox.pack
 //= require store/jquery.carouFredSel-6.1.0-packed
-//= require store/fotorama
-//= require store/custom
+
 //= require store/spree_commentable
+//= require store/spree_product_zoom
+//= require store/custom

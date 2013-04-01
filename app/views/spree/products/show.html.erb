@@ -10,17 +10,14 @@
 				
 				<div class="catalogue-element">
 					<div class="ce-image-wrap">
-						<span id="main-image" class="ce-image-l big-img">
-							  <%= product_image(@product, :itemprop => "image") %>
-						</span>
+		
+					        <div id="main-image" data-hook style="width: 300px; height: 247px;">
+					          <%= render :partial => 'image' %>
+					        </div>
+					        <div id="thumbnails" data-hook>
+					          <%= render :partial => 'thumbnails', :locals => { :product => @product } %>
+					        </div>
 			
-						<% if @product.images.size > 1 || @product.variant_images.size > 0 %>
-						  <ul id="product-thumbnails" class="thumbnails inline" data-hook>
-						    <% @product.images.each do |i| %>
-						      <li class="tmb-all" id="tmb-<%= i.id.to_s %>"><%= link_to image_tag(i.attachment.url(:mini)), i.attachment.url(:product) %></li>
-						    <% end %>
-						</ul>
-						<% end %>
 					</div>
 		
 					<div class="ce-text">

@@ -64,6 +64,14 @@ GIT
       spree
 
 GIT
+  remote: git://github.com/spree/spree_product_zoom.git
+  revision: c10794cd9d2278fafb7a276965673c629cda6cf5
+  branch: 1-1-stable
+  specs:
+    spree_product_zoom (1.1.2)
+      spree_core (~> 1.1.2)
+
+GIT
   remote: git://github.com/spree/spree_related_products.git
   revision: b9edef26cc2349d37c5e79d40d83325fe8241e04
   branch: 1-1-stable
@@ -413,6 +421,7 @@ DEPENDENCIES
   spree_essential_menus!
   spree_essentials (~> 0.5.0)
   spree_i18n!
+  spree_product_zoom!
   spree_related_products!
   spree_slider!
   synergy!
