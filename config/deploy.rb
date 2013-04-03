@@ -31,7 +31,7 @@ require 'bundler/capistrano'
 # или у вас старая версия rails, закомментируйте эту строку.
 
 
-load 'deploy/assets'
+load File.expand_path('../recipes/assets.rb', __FILE__)
 
 
 # Для удобства работы мы рекомендуем вам настроить авторизацию
