@@ -52,22 +52,12 @@
 						</div>
 						
 						<div class="cg-points" id="cg-brand">							
-							<% if @taxon.children.blank? %>
-							<% @taxon.ancestors.last.children.in_groups_of(1, false) do |row| %>
-							  <ul class="cp-points-list">
-								<% for taxon in row %>
-								<li><%= link_to taxon.name, seo_url(taxon) %></li>  
-								<% end %>   
-							  </ul>
-							<% end %>
-							<% else %>
 							<% @brands.in_groups_of(1, false) do |row| %>
 							  <ul class="cp-points-list">
 								<% for taxon in row %>
 								<li><%= link_to taxon.name, seo_url(taxon) %></li>  
 								<% end %>   
 							  </ul>
-							<% end %>
 							<% end %>
 						</div>
 						
