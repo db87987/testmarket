@@ -15,13 +15,18 @@ module Spree
       @products = @searcher.retrieve_products
     
       taxon_id = @taxon.id
-      brand_taxonomy_id = Spree::Taxonomy.find_by_name('Бренды')
+      brand_taxonomy_id = Spree::Taxonomy.find_by_name('Бренд')
+      
+      current_taxon = @taxon
       
       @sql_query = (<<-SQL)
       SELECT DISTINCT spree_products_taxons.taxon_id FROM spree_products_taxons WHERE spree_products_taxons.product_id IN (
       SELECT spree_products.id FROM spree_products
       INNER JOIN spree_products_taxons ON spree_products.id = spree_products_taxons.product_id
-      WHERE spree_products_taxons.taxon_id = #{taxon_id})
+      WHERE spree_products_taxons.taxon_id IN (
+      SELECT spree_taxons.id FROM spree_taxons WHERE (spree_taxons.lft >= #{current_taxon.lft} AND spree_taxons.rgt <= #{current_taxon.rgt}) ORDER BY spree_taxons.lft
+      )
+      )
         SQL
       
       taxon_ids = ActiveRecord::Base.connection.execute(@sql_query).to_a.map {|tp| tp['taxon_id']}
