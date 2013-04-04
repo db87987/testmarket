@@ -13,13 +13,20 @@ module Spree
 
       @searcher = Spree::Config.searcher_class.new(params.merge(:taxon => @taxon.id))
       @products = @searcher.retrieve_products
+    
+      taxon_id = @taxon.id
+      brand_taxonomy_id = Spree::Taxonomy.find_by_name('Бренды')
       
-      @taxanomy = Spree::Taxonomy.find_by_name("Бренды")
-      first = Spree::Taxon.where(:name => 'Бренды').first
-      brands = Spree::Taxon.where(:taxonomy_id => @taxanomy.id)
-      @brands = brands.where('id != ?', first.id)
+      @sql_query = (<<-SQL)
+      SELECT DISTINCT spree_products_taxons.taxon_id FROM spree_products_taxons WHERE spree_products_taxons.product_id IN (
+      SELECT spree_products.id FROM spree_products
+      INNER JOIN spree_products_taxons ON spree_products.id = spree_products_taxons.product_id
+      WHERE spree_products_taxons.taxon_id = #{taxon_id})
+        SQL
       
-
+      taxon_ids = ActiveRecord::Base.connection.execute(@sql_query).to_a.map {|tp| tp['taxon_id']}
+      @brands = Spree::Taxon.where(id: taxon_ids, taxonomy_id: brand_taxonomy_id).all
+      
       respond_with(@taxon)
     end
 
