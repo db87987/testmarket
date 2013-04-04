@@ -4,7 +4,6 @@ class Spree::BrandsController < Spree::BaseController
   helper 'spree/products'
   
   def index 
-    #список брендов
     @taxanomy = Spree::Taxonomy.find_by_name("Бренды")
     first = Spree::Taxon.where(:name => 'Бренды').first
     brands = Spree::Taxon.where(:taxonomy_id => @taxanomy.id)
