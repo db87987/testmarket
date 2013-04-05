@@ -18,3 +18,4 @@
 //= require store/spree_commentable
 //= require store/spree_product_zoom
 //= require store/custom
+//= require store/spree_videos

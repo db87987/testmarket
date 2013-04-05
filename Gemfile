@@ -45,6 +45,8 @@ gem 'spree_related_products', :git => 'git://github.com/spree/spree_related_prod
 gem 'spree_editor', :github => 'spree/spree_editor', :branch => '1-3-stable'
 gem 'tinymce-rails-langs'
 
+gem 'spree_videos', :github => 'iloveitaly/Spree-Videos', :branch => 'master'
+
 gem 'synergy', :git => 'git://github.com/pirj/synergy.git'
 
 group :development do

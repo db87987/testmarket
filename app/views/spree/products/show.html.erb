@@ -75,7 +75,11 @@
 					
 					
 					<div class="content" id="descr-media">
+						<% if @product.videos.present? %>
+						<%= render 'video', :product => @product %>
+						<% else %>
 						<p>Инструкции для данного товара отсутствует</p>
+						<% end %>
 					</div>
 				</div>
 				
