@@ -19,6 +19,9 @@
 #
 module Spree
   class Product < ActiveRecord::Base
+    
+    scope :home, where(:home => true)
+    
     has_many :product_option_types, :dependent => :destroy
     has_many :option_types, :through => :product_option_types
     has_many :product_properties, :dependent => :destroy
@@ -69,7 +72,7 @@ module Spree
                     :meta_keywords, :price, :sku, :deleted_at, :prototype_id,
                     :option_values_hash, :on_hand, :weight, :height, :width, :depth,
                     :shipping_category_id, :tax_category_id, :product_properties_attributes,
-                    :variants_attributes, :taxon_ids, :availability_status
+                    :variants_attributes, :taxon_ids, :availability_status, :home
 
     attr_accessible :cost_price if Variant.table_exists? && Variant.column_names.include?('cost_price')
 

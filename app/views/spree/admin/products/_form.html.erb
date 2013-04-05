@@ -7,6 +7,12 @@
         <%= f.error_message_on :name %>
       <% end %>
 
+
+	  <%= f.field_container :home do %>
+        <%= f.label :home, "На главной?" %> <br />
+        <%= f.check_box :home %>
+      <% end %>
+
       <%= f.field_container :permalink do %>
         <%= f.label :permalink, t(:permalink) %> <span class="required">*</span><br />
         <%= f.text_field :permalink, :class => 'fullwidth title' %>

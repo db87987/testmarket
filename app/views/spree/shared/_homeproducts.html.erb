@@ -20,7 +20,7 @@
 
 				<% if products.any? %>
 				<ul class="catalogue-list">
-				<% products.descend_by_popularity.each do |product| %>
+				<% products.home.each do |product| %>
 				<% if Spree::Config[:show_zero_stock_products] || product.has_stock? %>
 				
 					<li class="<%= cycle("cl-item-first", "", "", :name => "classes") %>">
