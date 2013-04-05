@@ -30,6 +30,12 @@
         <%= f.text_area :description, {:cols => 60, :rows => 4, :class => 'fullwidth'} %>
         <%= f.error_message_on :description %>
       <% end %>
+
+      <%= f.field_container :file do %>
+        <%= f.label :file, "Инструкция"  %><br />
+        <%= f.text_field :file %>
+      <% end %>
+
     </div>
     <div class="right" data-hook="admin_product_form_right">
         <%= f.field_container :price do %>

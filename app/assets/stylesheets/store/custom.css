@@ -49,3 +49,19 @@
 	line-height: 150%;
 	font-size: 12px;
 }
+
+.instruction {
+	width: 150px;
+	height: 150px;
+	text-align: center;
+}
+
+.instruction a {
+	float: left;
+}
+
+.pdf {
+	padding-left: 60px;
+}
+
+

@@ -71,14 +71,21 @@
 					
 					<div class="content" id="descr-detail">
 						<%= product_description(@product) rescue t(:product_has_no_description) %>
+						
 					</div>
 					
 					
 					<div class="content" id="descr-media">
 						<% if @product.videos.present? %>
-						<%= render 'video', :product => @product %>
-						<% else %>
-						<p>Инструкции для данного товара отсутствует</p>
+						          <%= render 'video', :product => @product %>
+						            <% else %>
+						             <p>Инструкции для данного товара отсутствует</p>
+						            <% end %>
+						<% if @product.file? %> 
+						<div class="instruction">
+						<%= link_to image_tag('pdf.png'), @product.file, :class => 'pdf' %>
+						<%= link_to @product.name, @product.file %>
+						</div>
 						<% end %>
 					</div>
 				</div>

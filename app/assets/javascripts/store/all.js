@@ -11,6 +11,7 @@
 //= require store/spree_auth
 //= require store/spree_promo
 //= require store/spree_essential_menus
+//= require store/spree_videos
 
 //= require store/jquery.mousewheel-3.0.6.pack
 //= require store/jquery.carouFredSel-6.1.0-packed
@@ -18,4 +19,4 @@
 //= require store/spree_commentable
 //= require store/spree_product_zoom
 //= require store/custom
-//= require store/spree_videos
+
