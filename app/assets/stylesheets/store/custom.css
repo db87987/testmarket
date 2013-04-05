@@ -51,17 +51,16 @@
 }
 
 .instruction {
+	margin-top: 20px;
 	width: 150px;
 	height: 150px;
 	text-align: center;
 }
 
 .instruction a {
-	float: left;
 }
 
 .pdf {
-	padding-left: 60px;
 }
 
 

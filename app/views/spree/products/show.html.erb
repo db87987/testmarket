@@ -83,7 +83,7 @@
 						            <% end %>
 						<% if @product.file? %> 
 						<div class="instruction">
-						<%= link_to image_tag('pdf.png'), @product.file, :class => 'pdf' %>
+						<%= link_to image_tag('pdf.png'), @product.file, :class => 'pdf' %><br/>
 						<%= link_to @product.name, @product.file %>
 						</div>
 						<% end %>
