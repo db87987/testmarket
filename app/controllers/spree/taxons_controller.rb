@@ -15,7 +15,7 @@ module Spree
       @products = @searcher.retrieve_products
     
       taxon_id = @taxon.id
-      brand_taxonomy_id = Spree::Taxonomy.find_by_name('Бренд')
+      brand_taxonomy_id = Spree::Taxonomy.find_by_name('Бренды')
       
       current_taxon = @taxon
       
