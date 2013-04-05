@@ -15,7 +15,9 @@ module Spree
       @products = @searcher.retrieve_products
     
       taxon_id = @taxon.id
+      
       brand_taxonomy_id = Spree::Taxonomy.find_by_name('Бренды')
+      categories_taxonomy_id = Spree::Taxonomy.find_by_name('Категории')
       
       current_taxon = @taxon
       
@@ -31,6 +33,7 @@ module Spree
       
       taxon_ids = ActiveRecord::Base.connection.execute(@sql_query).to_a.map {|tp| tp['taxon_id']}
       @brands = Spree::Taxon.where(id: taxon_ids, taxonomy_id: brand_taxonomy_id).all
+      @categories = Spree::Taxon.where(id: taxon_ids, taxonomy_id: categories_taxonomy_id).all
       
       respond_with(@taxon)
     end
