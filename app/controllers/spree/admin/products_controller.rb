@@ -9,7 +9,7 @@ module Spree
       update.before :update_before
 
       def show
-        redirect_to( :action => :edit )
+        redirect_to( :action => :edit )        
       end
 
       def index

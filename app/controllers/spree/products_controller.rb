@@ -19,7 +19,7 @@ module Spree
       @product_properties = ProductProperty.includes(:property).where(:product_id => @product.id)
       
       if @product.taxons.first.nil?
-        @related_products = Product.limit(4)
+        @related_products = Spree::Product.limit(4)
       else
         @related_products = @product.taxons.first.products.limit(4)
       end
