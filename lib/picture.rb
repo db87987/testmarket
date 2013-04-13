@@ -1,4 +1,4 @@
-PATH="/var/www/home/hosting_babrovka/projects/testmarket/shared/system/images_without"
+PATH="/var/www/home/hosting_dczvepsrf/projects/allmusicmarket/shared/system/images_without"
 include Spree
 
 Product.all.each do |product|
