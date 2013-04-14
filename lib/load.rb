@@ -1,6 +1,7 @@
 # coding: utf-8
 
 require 'roo'
+require 'fileutils'
 
 class PriceLoader
   def initialize file, filename
@@ -19,11 +20,13 @@ class PriceLoader
   def sheet_from_file
     extension = @filename.original_filename.split('.').last
     if extension == 'xlsx'
-      File.rename @file.path, "/tmp/price.xlsx"
-      Excelx.new "/tmp/price.xlsx"
+      path = File.join(Rails.root, "/tmp/price.xlsx")
+      FileUtils.cp @file.path, path
+      Excelx.new path
     elsif extension == 'xls'
-      File.rename @file.path, "/tmp/price.xls"
-      Excel.new "/tmp/price.xls"
+      path = File.join(Rails.root, "/tmp/price.xls")
+      FileUtils.cp @file.path, path
+      Excel.new path
     else
       raise "Unknown file type"
     end
