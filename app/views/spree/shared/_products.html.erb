@@ -45,7 +45,7 @@
 							<% @brands.in_groups_of(1, false) do |row| %>
 							  <ul class="cp-points-list">
 								<% for taxon in row %>
-								<li><%= link_to taxon.name, seo_url(taxon) %></li>  
+								<li><%= link_to taxon.name, :brand => taxon.name %></li>  
 								<% end %>   
 							  </ul>
 							<% end %>

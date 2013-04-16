@@ -5,6 +5,7 @@ class ProductSearch < Spree::Core::Search::Base
             base_scope = base_scope.ascend_by_master_price if @properties[:sort] == 'price'
             base_scope = base_scope.order('name ASC') if @properties[:sort] == 'name'
             base_scope = base_scope.descend_by_popularity if @properties[:sort] == 'popularity'
+            base_scope = base_scope.includes(:taxons).where('"spree_taxons".name = ?', @properties[:brand]) if @properties[:brand]
             base_scope = base_scope.where(count_on_hand: @properties[:status].to_i) if @properties[:status]
             base_scope
           end
@@ -13,7 +14,9 @@ class ProductSearch < Spree::Core::Search::Base
           def prepare(params)
             super
             @properties[:sort] = params[:sort]
+            @properties[:brand] = params[:brand]
             @properties[:status] = params[:status]
           end       
 
 end
+
