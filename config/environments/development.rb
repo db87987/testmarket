@@ -5,6 +5,11 @@ Testmarket::Application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+  
+  # Memcached
+    config.perform_caching = true
+    config.action_controller.perform_caching = true
+    config.cache_store = :dalli_store, 'localhost:11211'
 
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true

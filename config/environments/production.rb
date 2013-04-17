@@ -3,6 +3,11 @@ Testmarket::Application.configure do
 
   # Code is not reloaded between requests
   config.cache_classes = true
+  
+  # Memcached
+    config.perform_caching = true
+    config.action_controller.perform_caching = true
+    config.cache_store = :dalli_store, 'localhost:11211'
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false

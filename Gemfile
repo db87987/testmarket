@@ -50,6 +50,7 @@ gem 'spree_videos', :github => 'iloveitaly/Spree-Videos', :branch => 'master'
 gem 'synergy', :git => 'git://github.com/pirj/synergy.git'
 
 gem 'rack-mini-profiler'
+gem 'dalli'
 
 group :development do
 gem 'pry-rails'
