@@ -52,6 +52,7 @@ gem 'synergy', :git => 'git://github.com/pirj/synergy.git'
 gem 'rack-mini-profiler'
 gem 'dalli'
 
+
 group :development do
 gem 'pry-rails'
 end

@@ -9,6 +9,13 @@ class ProductSearch < Spree::Core::Search::Base
             base_scope = base_scope.where(count_on_hand: @properties[:status].to_i) if @properties[:status]
             base_scope
           end
+          
+          def get_products_conditions_for(base_scope, query)
+            unless query.blank?
+              base_scope = base_scope.like_all([:name, :description], query.split)
+            end
+            base_scope
+          end
 
 
           def prepare(params)

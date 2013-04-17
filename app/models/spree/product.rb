@@ -194,6 +194,11 @@ module Spree
       where_str = fields.map { |field| Array.new(values.size, "#{self.quoted_table_name}.#{field} #{LIKE} ?").join(' OR ') }.join(' OR ')
       self.where([where_str, values.map { |value| "%#{value}%" } * fields.size].flatten)
     end
+    
+    def self.like_all(fields, values)
+         where_str = fields.map { |field| Array.new(values.size, "#{self.quoted_table_name}.#{field} #{LIKE} ?").join(' AND ') }.join(' OR ')
+         self.where([where_str, values.map { |value| "%#{value}%" } * fields.size].flatten)
+       end
 
     def empty_option_values?
       options.empty? || options.any? do |opt|
@@ -262,6 +267,8 @@ module Spree
       def save_master
         master.save if master && (master.changed? || master.new_record?)
       end
+      
+
 
       def ensure_master
         return unless new_record?
