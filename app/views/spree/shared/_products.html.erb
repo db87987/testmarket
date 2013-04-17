@@ -8,8 +8,11 @@
 					<%= breadcrumbs(@taxon) %> 
 				</ul>
 				
-				
-				<%= render :partial => 'spree/shared/filter' %>
+				<% if @taxon.taxonomy_id == @categories_taxonomy_id.id %>
+				<%= render :partial => 'spree/shared/categories_filter' %>
+				<% else %>
+				<%= render :partial => 'spree/shared/brands_filter' %>
+				<% end %>
 				
 				<%
 				  paginated_products = @searcher.retrieve_products if params.key?(:keywords)

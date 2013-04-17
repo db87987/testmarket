@@ -14,7 +14,7 @@ module Spree
       @products = @searcher.retrieve_products
 
       brand_taxonomy_id = Spree::Taxonomy.find_by_name('Бренды')
-      categories_taxonomy_id = Spree::Taxonomy.find_by_name('Категории')
+      @categories_taxonomy_id = Spree::Taxonomy.find_by_name('Категории')
    
       taxon_id = @taxon.id
       current_taxon = @taxon
@@ -38,10 +38,10 @@ module Spree
         relatives = @taxon.children
       end
         
-      if @taxon.taxonomy_id == categories_taxonomy_id.id
+      if @taxon.taxonomy_id == @categories_taxonomy_id.id
         @categories = relatives
       else
-        @categories = Spree::Taxon.where(id: taxon_ids, taxonomy_id: categories_taxonomy_id).all
+        @categories = Spree::Taxon.where(id: taxon_ids, taxonomy_id: @categories_taxonomy_id).all
       end
       
       respond_with(@taxon)
