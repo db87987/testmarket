@@ -10,15 +10,13 @@ module Spree
     def show
       @taxon = Taxon.find_by_permalink!(params[:id])
       return unless @taxon
-
       @searcher = Spree::Config.searcher_class.new(params.merge(:taxon => @taxon.id))
       @products = @searcher.retrieve_products
-    
-      taxon_id = @taxon.id
-      
+
       brand_taxonomy_id = Spree::Taxonomy.find_by_name('Бренды')
       categories_taxonomy_id = Spree::Taxonomy.find_by_name('Категории')
-      
+   
+      taxon_id = @taxon.id
       current_taxon = @taxon
       
       @sql_query = (<<-SQL)
@@ -33,7 +31,18 @@ module Spree
       
       taxon_ids = ActiveRecord::Base.connection.execute(@sql_query).to_a.map {|tp| tp['taxon_id']}
       @brands = Spree::Taxon.where(id: taxon_ids, taxonomy_id: brand_taxonomy_id).all
-      @categories = Spree::Taxon.where(id: taxon_ids, taxonomy_id: categories_taxonomy_id).all
+      
+      if @taxon.children.blank?
+        relatives = @taxon.ancestors.last.children
+      else
+        relatives = @taxon.children
+      end
+        
+      if @taxon.taxonomy_id == categories_taxonomy_id.id
+        @categories = relatives
+      else
+        @categories = Spree::Taxon.where(id: taxon_ids, taxonomy_id: categories_taxonomy_id).all
+      end
       
       respond_with(@taxon)
     end
