@@ -221,7 +221,7 @@ module Spree
         if product.images.empty?
           image_tag "noimage/#{style}.png", options
         else
-          image = product.images.first
+          image = product.images.last
           options.reverse_merge! :alt => image.alt.blank? ? product.name : image.alt
           image_tag image.attachment.url(style), options
         end
