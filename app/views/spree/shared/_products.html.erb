@@ -9,51 +9,7 @@
 				</ul>
 				
 				
-				<% unless @taxon.nil? %>
-				<div class="catalogue-filter">
-					<a href="#" class="cf-goods-link">фильтр по товарам</a>
-					
-					<ul class="cf-sort">
-						<li>сортировать:</li>
-						<li><%= nav_link "Название", :sort => "name" %></li>
-						<li><%= nav_link "Популярность", :sort => "popularity" %></li>
-						<li><%= nav_link "Цена", :sort => "price" %></li>
-					</ul>
-					
-					<br class="clear" />
-					
-					<div class="cf-goods">
-						<span class="cg-title">сортировка товаров</span>
-						<a href="#" title="Закрыть" class="cg-close">Закрыть</a>
-						
-						<ul class="cg-tabs">
-							<li><a href="#cg-category" class="active" ><span>Выбрать по категории</span></a></li>
-							<li><a href="#cg-brand"><span>Выбрать по производителю</span></a></li>
-						</ul>
-												
-						<div class="cg-points" id="cg-category">	
-							<% @categories.in_groups_of(1, false) do |row| %>
-							  <ul class="cp-points-list">
-								<% for taxon in row %>
-								<li><%= link_to taxon.name, seo_url(taxon) %></li>  
-								<% end %>   
-							  </ul>
-							<% end %>
-						</div>
-						
-						<div class="cg-points" id="cg-brand">							
-							<% @brands.in_groups_of(1, false) do |row| %>
-							  <ul class="cp-points-list">
-								<% for taxon in row %>
-								<li><%= link_to taxon.name, :brand => taxon.name %></li>  
-								<% end %>   
-							  </ul>
-							<% end %>
-						</div>
-						
-					</div>
-				</div>
-				<% end %>
+				<%= render :partial => 'spree/shared/filter' %>
 				
 				<%
 				  paginated_products = @searcher.retrieve_products if params.key?(:keywords)
