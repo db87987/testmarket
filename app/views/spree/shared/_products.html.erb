@@ -8,10 +8,12 @@
 					<%= breadcrumbs(@taxon) %> 
 				</ul>
 				
+				<% unless @taxon.nil? %>
 				<% if @taxon.taxonomy_id == @categories_taxonomy_id.id %>
 				<%= render :partial => 'spree/shared/categories_filter' %>
 				<% else %>
 				<%= render :partial => 'spree/shared/brands_filter' %>
+				<% end %>
 				<% end %>
 				
 				<%
