@@ -6,7 +6,7 @@
   <% if @product.images.empty? %>
     <%= product_image(@product, :itemprop => "large") %>
   <% else %>
-    <%= link_to product_image(@product, :itemprop => "image"), @product.images.first.attachment.url(Spree::ProductZoom::Config.default_image_style), :class => 'fancybox zoom-image large-image', :rel => 'gallery' %>
+    <%= link_to product_image(@product, :itemprop => "image"), @product.images.last.attachment.url(Spree::ProductZoom::Config.default_image_style), :class => 'fancybox zoom-image large-image', :rel => 'gallery' %>
     <br />
     <div id="gallery" style="display:none;">
       <% @product.images.each do |img| %>

@@ -93,7 +93,7 @@ $(document).ready(function(){
 	
 	// Слайдер на главной
 	$("#slider-idx ul").carouFredSel({
-		auto 			: {pauseDuration: 5000}, 
+		auto 			: {timeoutDuration: 5000}, 
    	pagination  : "#s-pagination"
 	});
 	
@@ -114,8 +114,6 @@ $(document).ready(function(){
 	var jsElWidth = $('.mm-carousel li').width();
 	// зададим ширину карусели
 	$('.mm-carousel ul').css({'width':jsElNum*jsElWidth})
-	// инициализация jScrollPane для карусели
-	$('.mm-carousel').jScrollPane({showArrows: true, horizontalDragMaxWidth: 202, horizontalDragMinWidth: 202, animateScroll: true, arrowButtonSpeed: 158});
 	
 	// Бренды
 	$('.brands-list a img').hover(function(){
