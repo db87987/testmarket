@@ -3,7 +3,7 @@ module Spree
     validates_attachment_presence :attachment
     validate :no_attachment_errors
     
-    default_scope order('attachment_file_name ASC')
+    default_scope order('attachment_file_name DESC')
 
     attr_accessible :alt, :attachment, :position, :viewable_type, :viewable_id
 
