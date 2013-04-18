@@ -1,8 +1,17 @@
 module Spree
   module Admin
     class TaxonsController < Spree::Admin::BaseController
-
+      
       respond_to :html, :json, :js
+      
+      #refresh taxonomy tree for each action
+      before_filter :refresh_tree
+      
+      
+      #refresh taxonomy tree:
+      def refresh_tree
+        expire_fragment('taxonomies')
+      end
 
       def create
         @taxonomy = Taxonomy.find(params[:taxonomy_id])
