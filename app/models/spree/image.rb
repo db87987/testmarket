@@ -2,6 +2,8 @@ module Spree
   class Image < Asset
     validates_attachment_presence :attachment
     validate :no_attachment_errors
+    
+    default_scope order('attachment_file_name ASC')
 
     attr_accessible :alt, :attachment, :position, :viewable_type, :viewable_id
 
