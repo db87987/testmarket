@@ -76,10 +76,10 @@
 
 @font-face {
     font-family: 'pf_din_text_cond_proregular';
-    src: url('pfdintextcondpro-regular-webfont.eot');
-    src: local('☺'), url('pfdintextcondpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('pfdintextcondpro-regular-webfont.woff') format('woff'),
-         url('pfdintextcondpro-regular-webfont.ttf') format('truetype');
+    src: url('PFDinTextCondPro-Regular.eot');
+    src: local('☺'), url('PFDinTextCondPro-Regular.eot?#iefix') format('embedded-opentype'),
+         url('PFDinTextCondPro-Regular.woff') format('woff'),
+         url('PFDinTextCondPro-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
