@@ -34,7 +34,7 @@
 						<% if @product.price %>
 						<div class="buy-block">
 							<%= button_tag :class => 'bb-button', :id => 'add-to-cart-button', :type => :submit do %>
-				              <%= t(:add_to_cart) %>
+				              <%= "В КОРЗИНУ" %>
 				            <% end %>
 							<div class="bb-quantity">
 								<% if @product.has_stock? || Spree::Config[:allow_backorders] %>      
@@ -94,7 +94,7 @@
 				
 				
 				
-				<span class="recom-title">с этим товаром также смотрят:</span>
+				<span class="recom-title">АНАЛОГИЧНЫЕ ТОВАРЫ:</span>
 				<ul class="catalogue-list cl-inside">
 					<% @related_products.each do |product| %>
 					<li class="<%= cycle("cl-item-first", "", "", "cl-item-four", :name => "classes") %>">

@@ -34,6 +34,7 @@
 					<li class="<%= cycle("cl-item-first", "", "", "cl-item-four", :name => "classes") %>">
 						<%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url', :class => 'cl-img' %>
 						<span class="cl-title"><%= link_to truncate(product.name, :length => 42), product, :itemprop => "name", :title => product.name %></span>
+						<p><%= truncate(product.short_description, :length => 52) rescue t(:product_has_no_description) %></p>
 						<span class="cl-price"><%= number_to_currency product.price %></span>
 						<%= link_to "купить", product, :class => "cl-buy" %>
 					</li>
