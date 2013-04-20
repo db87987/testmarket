@@ -21,7 +21,7 @@ module Spree
       if @product.taxons.first.nil?
         @related_products = Spree::Product.limit(4)
       else
-        @related_products = @product.taxons.first.products.shuffle.limit(4)
+        @related_products = @product.taxons.first.products(:order => "RANDOM()").limit(4)
       end
       
       
