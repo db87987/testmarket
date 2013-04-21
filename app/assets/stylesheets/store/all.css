@@ -592,6 +592,10 @@ body {background: #1c1c1c url(/img/bg.gif);}
 	text-transform: uppercase;
 }
 
+.cl-buy.inner {
+	margin-top: 10px;
+}
+
 #container .catalogue-list li .cl-buy:hover {
 	background-color: #c10100;
 	color: #fff;
